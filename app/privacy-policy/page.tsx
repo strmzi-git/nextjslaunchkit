@@ -1,3 +1,8 @@
+const Page = function () {
+  return <div className=""></div>;
+};
+export default Page;
+
 // REMEMBER TO ADD THE FACT THAT YOU TAKE THE CUSTOMERS EMAIL AND STORE IT IN THE DB FOR PROMOTIONAL PRUPOSES
 // https://stripe.com/docs/payments/checkout/compliant-promotional-emails
 

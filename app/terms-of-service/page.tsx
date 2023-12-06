@@ -1,3 +1,8 @@
+const Page = function () {
+  return <div className=""></div>;
+};
+export default Page;
+
 // Effective Date: November 26, 2023
 
 // 1. Introduction
