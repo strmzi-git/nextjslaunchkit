@@ -4,7 +4,6 @@ import { RxExit } from "react-icons/rx";
 import { config } from "@/config";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useMediaQuery } from "react-responsive";
-import Icon from "../Icon";
 import ButtonPrimary from "../ButtonPrimary";
 import { getSession, signIn, signOut, useSession } from "next-auth/react";
 import Google from "next-auth/providers/google";
@@ -114,10 +113,10 @@ const NavbarItems = function () {
               fullScreenNavbar && "transform scale-[45] duration-[1000ms]"
             }`}
           ></div>
-          <Icon
-            icon={RxHamburgerMenu}
-            size={30}
-            color=" cursor-pointer z-[200] relative text-secondary"
+          <RxHamburgerMenu
+            height={35}
+            width={35}
+            className="  cursor-pointer z-[200] relative text-secondary"
           />
         </div>
       )}

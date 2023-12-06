@@ -25,7 +25,7 @@ const EmailInput = function ({ onEmailSubmit }: EmailInputProps) {
 
       <ButtonPrimary
         functionality={() => onEmailSubmit(leadEmail)}
-        props="border-1 bg-accentDark text-primary min-w-[180px] hover:text-primary rounded-lg h-[100%] border-white  hover:bg-primary duration-300 hover:text-accentDark text-accentDark hover:border-accentDark text-white "
+        props="border-1 bg-accentDark text-primary min-w-[180px]  rounded-lg h-[100%] border-white hover:bg-primary duration-300 hover:text-accentDark text-accentDark hover:border-accentDark text-white "
         content="Stay Updated "
       />
     </div>

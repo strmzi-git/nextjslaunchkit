@@ -8,7 +8,7 @@ export const config = {
     headerTexts: {
       primary: "Next.Js Boilerplate for Effortless Design and Development",
       secondary:
-        "Supercharge your workflow and ship products at a much faster rate using our all-in-one boilerplate. No need to spend days designing and developing an app from scratch.",
+        "Supercharge your workflow and ship products at a much faster rate using our all-in-one boilerplate. No need to spend weeks designing and developing an app from scratch.",
     },
     headerButtonCTA: {
       primaryCTA: "Start Building",
@@ -67,18 +67,12 @@ export const config = {
       ],
     ],
   },
-  infoPage: {
-    title: "Build, validate  and iterate faster.",
-    subtitle: "Learn by building",
-    content1:
-      "We offer an intuitively designed, full-stack template that will save you DAYS of design and development.",
-    content2:
-      "Stay ahead of your competition by launching the day you come up with an idea rather than being late. ",
-    actionButton: "Launch Today!",
-  },
   howItWorksPage: {
-    header: "",
-    subheader: [""],
+    header: "It's simple, really",
+    subheader: [
+      "❌ Stop spending days, or weeks even, only to validate a failed idea",
+      "✅ Get an idea, validate your idea within 1 day, iterate until you find success.",
+    ],
     cardContents: [
       "Easily customisable component",
       "Complete stripe integration incl. webhooks",
@@ -99,7 +93,7 @@ export const config = {
   testimonialsPage: {
     header: "Have a look at what users say",
     subheader: [
-      "Using our production-ready template, you can launch a landing page for any idea as soon as you get them!",
+      "Using the LaunchKit boilerplate, you can launch a landing page for any idea as soon as you get them!",
     ],
     testimonials: [
       {
@@ -136,43 +130,6 @@ export const config = {
         name: "Jennifer Patty",
       },
     ],
-    testimonialProjects: [
-      {
-        type: "project",
-        websiteUrl: "https://www.placeholderDomain.com",
-        username: "Mark Tuckerberg",
-        imageSrc: "",
-        coverImage: "",
-      },
-      {
-        type: "project",
-        websiteUrl: "https://www.placeholderDomain.com",
-        username: "Elon Tusk",
-        imageSrc: "",
-        coverImage: "",
-      },
-      {
-        type: "project",
-        websiteUrl: "https://www.placeholderDomain.com",
-        username: "Elon Tusk",
-        imageSrc: "",
-        coverImage: "",
-      },
-      {
-        type: "project",
-        websiteUrl: "https://www.placeholderDomain.com",
-        username: "Bill Tates",
-        imageSrc: "",
-        coverImage: "",
-      },
-      {
-        type: "project",
-        websiteUrl: "https://www.placeholderDomain.com",
-        username: "Bill Tates",
-        imageSrc: "",
-        coverImage: "",
-      },
-    ],
   },
 
   quote: {
@@ -181,16 +138,16 @@ export const config = {
   },
   pricingPage: {
     primaryProduct: {
-      discountedPrice: 25.99,
-      originalPrice: 159.99,
+      discountedPrice: 75,
+      originalPrice: 125,
     },
     seconaryProduct: {
-      discountedPrice: 19.99,
-      originalPrice: 129.99,
+      discountedPrice: 50,
+      originalPrice: 100,
     },
     actionCall: "Secure your own template for success",
     secondaryAcionCall: [
-      "👀  Take advantage of the the current price, it will never be this cheap again.",
+      "👀 Take advantage of the the current price, it will never be this cheap again.",
     ],
     pricingProductNames: {
       primary: "Advanced Template",
@@ -244,8 +201,8 @@ export const config = {
       false,
       false,
     ],
-    primaryPricingDealText: "100% (Limited time only)",
-    secondaryPricingDealText: "Pre-sale offer: 75% off (only 7 left) ",
+    primaryPricingDealText: "",
+    secondaryPricingDealText: "",
     primaryPricingCTA: "Get LaunchKit (pre-order)",
     secondaryPricingCTA: "Get LaunchKit (pre-order)",
   },

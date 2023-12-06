@@ -17,11 +17,8 @@ const HowItWorks = function () {
     >
       <MainSubHeader
         section="How it works"
-        mainContent="It's simple, really"
-        subArray={[
-          "❌ Stop spending days, or weeks even, only to validate a failed idea",
-          "✅ Get an idea, validate your idea within 1 day, iterate until you find success.",
-        ]}
+        mainContent={config.howItWorksPage.header}
+        subArray={config.howItWorksPage.subheader}
       />
       <Component />
     </div>

@@ -31,10 +31,7 @@ const HeroPage = function () {
           <GradientButton
             content={config.heroPage.headerButtonCTA.primaryCTA}
           />
-          {/* <ButtonPrimary
-            content={config.heroPage.headerButtonCTA.secondaryCTA}
-            props="py-3 z-20 rounded-none"
-          /> */}
+
         </div>
       </Container>
     </div>

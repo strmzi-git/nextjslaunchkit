@@ -1,15 +1,7 @@
 "use client";
 
-import { config } from "@/config";
 import Container from "../Container";
-import { useMediaQuery } from "react-responsive";
-import Icon from "../Icon";
-import { RxHamburgerMenu } from "react-icons/rx";
-import ButtonPrimary from "../ButtonPrimary";
-import Image from "next/image";
-import { useState } from "react";
 import LogoComponent from "../LogoComponent";
-import NavbarItems from "./NavbarItems";
 import dynamic from "next/dynamic";
 
 const DynamicNavbarItems = dynamic(() => import("./NavbarItems"), {
@@ -18,7 +10,7 @@ const DynamicNavbarItems = dynamic(() => import("./NavbarItems"), {
 
 const Navbar = function () {
   return (
-    <div className="z-[100] border-2 border-black overflow-visible ">
+    <div className="z-[100]  overflow-visible ">
       <Container
         showOverflow
         props={
