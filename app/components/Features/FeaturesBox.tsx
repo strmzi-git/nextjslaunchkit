@@ -1,16 +1,12 @@
 "use client";
 import { SlWallet } from "react-icons/sl";
-
 import { PiListNumbers } from "react-icons/pi";
 import { FaRegUser } from "react-icons/fa";
-
 import { IconType } from "react-icons";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { MdAlternateEmail } from "react-icons/md";
 import { MdOutlineAnalytics } from "react-icons/md";
-
 import { BsDatabase } from "react-icons/bs";
-
 import { config } from "@/config";
 
 interface FeaturesBoxProps {

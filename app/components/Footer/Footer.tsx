@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import LogoComponent from "../LogoComponent";
 import { config } from "@/config";
 import Link from "next/link";

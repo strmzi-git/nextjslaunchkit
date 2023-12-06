@@ -1,20 +1,14 @@
 "use client";
 export { SessionProvider } from "next-auth/react";
-import ButtonPrimary from "../ButtonPrimary";
 import Container from "../Container";
-import { BsGithub } from "react-icons/bs";
 import HeaderText from "./HeaderText";
 import { useMediaQuery } from "react-responsive";
 import SecondaryHeaderText from "./secondaryHeaderText";
 import GradientButton from "../GradientButton";
-import CustomLine from "../CustomLine";
 import SecondaryHeaderCTA from "./SecondaryHeaderCTA";
 import { config } from "@/config";
-import dynamic from "next/dynamic";
+
 import Navbar from "./Navbar";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import { useSession } from "next-auth/react";
 
 const HeroPage = function () {
   const isTablet = useMediaQuery({ query: "(max-width: 625px)" });

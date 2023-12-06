@@ -1,7 +1,6 @@
 import { config } from "@/config";
 import FAQHeader from "./FAQHeader";
 import FAQQuestion from "./FAQQuestion";
-import { Accordion } from "@mui/material";
 
 const FAQPage = function () {
   return (

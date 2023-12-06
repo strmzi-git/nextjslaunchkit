@@ -2,11 +2,6 @@
 
 import { config } from "@/config";
 import FeaturesBox from "./FeaturesBox";
-import { CiWallet } from "react-icons/ci";
-import { GrPowerCycle } from "react-icons/gr";
-import { BsStars } from "react-icons/bs";
-import { FaDatabase } from "react-icons/fa6";
-import { IconType } from "react-icons";
 
 const FeaturesContainer = function () {
   const getBuilding = () => {};

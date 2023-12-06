@@ -1,5 +1,4 @@
 import { config } from "@/config";
-import { FaCheck } from "react-icons/fa";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 
 interface PricingLineItemProps {

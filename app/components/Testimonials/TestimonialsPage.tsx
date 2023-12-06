@@ -2,8 +2,6 @@
 
 import { config } from "@/config";
 import SingleTestimonial from "./SingleTestimonial";
-import { TestimonialType } from "@/app/types/TestimonialType";
-import { TestimonialProjectType } from "@/app/types/TestimonialProject";
 import MainSubHeader from "../MainSubHeader";
 import { useEffect, useState } from "react";
 import ShowAllTestimonials from "./ShowAllTestimonials";

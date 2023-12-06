@@ -1,12 +1,7 @@
 "use client";
 
-import { FaChevronDown } from "react-icons/fa";
 import { useState } from "react";
 import { CiCircleQuestion } from "react-icons/ci";
-
-import { useMediaQuery } from "react-responsive";
-import { Accordion } from "@mui/material";
-import { FaQuestion } from "react-icons/fa";
 
 interface FAQQuestionProps {
   question: string;
