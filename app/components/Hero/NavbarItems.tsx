@@ -1,22 +1,17 @@
 "use client";
 import { RxExit } from "react-icons/rx";
-
 import { config } from "@/config";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useMediaQuery } from "react-responsive";
 import ButtonPrimary from "../ButtonPrimary";
-import { getSession, signIn, signOut, useSession } from "next-auth/react";
-import Google from "next-auth/providers/google";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import Link from "next/link";
+import { useState } from "react";
+import LoginButton from "./LoginButton";
 
 const NavbarItems = function () {
   const [fullScreenNavbar, setFullScreenNavbar] = useState(false);
   const [showMobileNavbarItems, setShowMobileNavbarItems] = useState(false);
-  const userSession = useSession();
-  console.log(userSession);
 
   const scrollIntoView = (sectionid: string) => {
     const section = document.getElementById(sectionid);
@@ -28,6 +23,7 @@ const NavbarItems = function () {
     <div className="">
       {fullScreenNavbar && (
         <div className=" w-[300px]  absolute top-[45vh] right-[50vw] translate-x-[50%] translate-y-[-50%] z-[200] flex flex-col items-center gap-4">
+          <LoginButton />
           {showMobileNavbarItems &&
             config.heroPage.navbarItems.map((item, idx) => {
               return (
@@ -67,30 +63,7 @@ const NavbarItems = function () {
               </button>
             );
           })}
-          {userSession.data?.user ? (
-            <div className="border p-2  flex items-center gap-2">
-              <Image
-                src={userSession.data.user.image || ""}
-                alt="User profile picture"
-                className="rounded-full"
-                height={30}
-                width={30}
-              />
-              <p className="text-sm ">{userSession.data.user.name}</p>
-              <div className="w-[1px] border-r border-greyMedium h-[20px]"></div>
-              <div onClick={() => signOut({ redirect: false })}>
-                <RxExit
-                  size={22.5}
-                  className="text-greyMedium cursor-pointer"
-                />
-              </div>
-            </div>
-          ) : (
-            <ButtonPrimary
-              content="Sign In"
-              functionality={() => signIn("github", { redirect: false })}
-            />
-          )}
+          <LoginButton />
         </div>
       )}
       {!isTablet && (
