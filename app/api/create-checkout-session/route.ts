@@ -9,7 +9,7 @@ export async function POST(request: Request) {
   console.log(origin);
 
   const stripe = new Stripe(
-    process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY_TEST as string,
+    process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY as string,
     {
       apiVersion: "2023-10-16",
     }
@@ -33,7 +33,7 @@ export async function POST(request: Request) {
         quantity: 1,
       },
     ],
-    discounts: [{ coupon: "kCfS0SC9" }],
+    discounts: [{ coupon: "hFyfSyBV" }],
     customer: currentUser?.stripeCustomerId as string,
 
     success_url: `${origin}/`,

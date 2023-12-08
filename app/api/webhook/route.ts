@@ -7,15 +7,17 @@ import { Octokit } from "octokit";
 export async function POST(request: NextRequest) {
   const body = await request.text();
 
-  const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!, {
-    apiVersion: "2023-10-16",
-  });
+  const stripe = new Stripe(
+    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string,
+    {
+      apiVersion: "2023-10-16",
+    }
+  );
   let data;
   let eventType;
   let event;
   // Check if webhook signing is configured.
-  const webhookSecret =
-    "whsec_97b6d02817425ff50b3bf27f247ea5cb8c540bfdbc2a6c92c0325bb73727d72e"; // Update this according to your secret configuration
+  const webhookSecret = process.env.NEXT_PUBLIC_STRIPE_WEBHOOK_SECRET; // Update this according to your secret configuration
 
   if (webhookSecret) {
     // Retrieve the event by verifying the signature using the raw body and secret.

@@ -24,15 +24,16 @@ const PricingBox = function ({ main }: PricingBoxProps) {
       toast.error("Please log in first");
       return;
     }
-    const priceId = main
-      ? process.env.NEXT_PUBLIC_STRIPE_ADVANCED_PRICE_ID_TEST
-      : process.env.NEXT_PUBLIC_STRIPE_BASIC_PRICE_ID_TEST;
+    // const priceId = main
+    //   ? process.env.NEXT_PUBLIC_STRIPE_ADVANCED_PRICE_ID_TEST
+    //   : process.env.NEXT_PUBLIC_STRIPE_BASIC_PRICE_ID_TEST;
+    const priceId = process.env.NEXT_PUBLIC_STRIPE_ADVANCED_FREE_PRICE_ID;
     console.log(priceId);
-    if (!priceId || !process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_TEST) {
+    if (!priceId || !process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) {
       return;
     }
     const stripe = (await loadStripe(
-      process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_TEST as string
+      process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
     )) as any;
 
     try {

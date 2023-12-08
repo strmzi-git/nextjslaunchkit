@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { SessionProvider } from "next-auth/react";
 import { NextAuthProvider } from "./providers/AuthSessionProvider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -24,6 +23,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={poppins.className}>
         <NextAuthProvider>{children}</NextAuthProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
