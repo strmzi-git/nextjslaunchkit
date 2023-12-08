@@ -1,4 +1,3 @@
-import { loadStripe } from "@stripe/stripe-js";
 import Stripe from "stripe";
 import { NextResponse } from "next/server";
 import prisma from "@/app/libs/prismadb";
@@ -37,8 +36,8 @@ export async function POST(request: Request) {
     discounts: [{ coupon: "hFyfSyBV" }],
     customer: currentUser?.stripeCustomerId as string,
 
-    success_url: `${origin}/checkout-success`,
-    cancel_url: `${origin}/checkout-error`,
+    success_url: `${origin}/`,
+    cancel_url: `${origin}/`,
     // IMPORTANT: Ask for customer consent before sending promotional emails
     // consent_collection: {
     //   promotions: "auto",

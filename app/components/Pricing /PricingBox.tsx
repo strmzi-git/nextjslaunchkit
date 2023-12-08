@@ -19,25 +19,16 @@ const PricingBox = function ({ main }: PricingBoxProps) {
   const isMobile = useMediaQuery({ query: "(max-width: 430px)" });
   const { data } = useSession();
 
-  const scrollIntoView = (sectionid: string) => {
-    const section = document.getElementById(sectionid);
-    if (section) section.scrollIntoView({ behavior: "smooth" });
-  };
-
   const handleCheckout = async function (main: boolean) {
     if (!data?.user?.email) {
-      toast.error("Pleas log in first...");
+      toast.error("Please log in first");
       return;
     }
     const priceId = main
       ? process.env.NEXT_PUBLIC_STRIPE_ADVANCED_PRICE_ID_TEST
       : process.env.NEXT_PUBLIC_STRIPE_BASIC_PRICE_ID_TEST;
     console.log(priceId);
-    if (
-      !priceId ||
-      !process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_TEST ||
-      !process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-    ) {
+    if (!priceId || !process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY_TEST) {
       return;
     }
     const stripe = (await loadStripe(

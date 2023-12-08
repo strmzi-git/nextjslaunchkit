@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { headers } from "next/headers";
 import prisma from "@/app/libs/prismadb";
+import { Octokit } from "octokit";
 
 export async function POST(request: NextRequest) {
   const body = await request.text();
@@ -42,32 +43,41 @@ export async function POST(request: NextRequest) {
       case "payment_intent.succeeded":
         const dataObject: Stripe.Checkout.Session = event?.data
           .object as Stripe.Checkout.Session;
-        const customerId = dataObject.customer as string;
-        const customerUserData = await prisma.user.update({
-          where: {
-            stripeCustomerId: customerId,
-          },
-          data: {
-            verifiedPayment: true,
-            boilercodeCollected: false,
-          },
-        });
 
-        // Then define and call a function to handle the event invoice.payment_succeeded
+        const customerId = dataObject.customer as string;
+        try {
+          const githubUsername = await prisma.user.findUnique({
+            where: {
+              stripeCustomerId: customerId,
+            },
+          });
+          console.log("Github username:", githubUsername?.name);
+          const octokit = new Octokit({
+            auth: process.env.NEXT_PUBLIC_GITHUB_ACCESS_TOKEN as string,
+            userAgent: "strmzi-git",
+          });
+          const response = await octokit.request(
+            "PUT /repos/{owner}/{repo}/collaborators/{username}",
+            {
+              headers: {
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_ACCESS_TOKEN}`,
+                "Content-Type": "application/json",
+                Accept: "application/vnd.github+json",
+              },
+              owner: "strmzi-git",
+              repo: "fs-template",
+              username: githubUsername?.name as string,
+              permission: "pull",
+            }
+          );
+          const { data, status, headers } = response;
+          console.log(data, status);
+        } catch (err) {
+          console.log(err);
+        }
         break;
       case "checkout.session.completed":
-        // Payment is successful and the subscription is created.
-        // You should provision the subscription and save the customer ID to your database.
-        break;
-      case "invoice.paid":
-        // Continue to provision the subscription as payments continue to be made.
-        // Store the status in your database and check when a user accesses your service.
-        // This approach helps you avoid hitting rate limits.
-        break;
-      case "invoice.payment_failed":
-        // The payment failed or the customer does not have a valid payment method.
-        // The subscription becomes past_due. Notify your customer and send them to the
-        // customer portal to update their payment information.
+        // Do something
         break;
       default:
       // Unhandled event type
