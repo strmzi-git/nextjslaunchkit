@@ -60,7 +60,7 @@ const PricingBox = function ({ main }: PricingBoxProps) {
 
   return (
     <div
-      className={`relative bg-white  px-3 py-8 border-accentDark border-[3px] rounded-2xl 
+      className={`relative max-w-[95vw] bg-white px-1 sm:px-3 py-8 border-accentDark border-[3px] rounded-2xl 
       ${main && isMobile && "w-[365px]"}
       ${main && !isMobile && "w-[450px]"}
       ${!main && isMobile && "w-[365px]"}
@@ -78,15 +78,15 @@ const PricingBox = function ({ main }: PricingBoxProps) {
       )}
 
       <h3
-        className={`text-center font-bold  ${
-          main ? "text-3xl" : " text-3xl"
+        className={`text-center font-bold   ${
+          main ? " text-2xl sm:text-3xl" : " text-xl sm:text-2xl"
         } text-greyDark mb-4`}
       >
         {main
           ? config.pricingPage.pricingProductNames.primary
           : config.pricingPage.pricingProductNames.seconary}
       </h3>
-      <ul className="list-none my-2 px-4 ">
+      <ul className="list-none my-2 px-2 ">
         {main
           ? config.pricingPage.primaryPricingItems.map((item, idx) => {
               return (
@@ -98,7 +98,7 @@ const PricingBox = function ({ main }: PricingBoxProps) {
             })}
       </ul>
 
-      <p className="text-greyDark my-4 font-semibold text-2xl text-center">
+      <p className="text-greyDark my-4 font-semibold text-xl sm:text-2xl text-center">
         <span className=" mr-2 line-through text-sm opacity-60">
           {main
             ? config.pricingPage.primaryProduct.originalPrice
@@ -123,7 +123,7 @@ const PricingBox = function ({ main }: PricingBoxProps) {
               : config.pricingPage.primaryPricingCTA
           }
           props={`
-          hover:bg-accentDark hover:text-primary hover:border-white
+          hover:bg-accentDark text-sm sm:text-base hover:text-primary hover:border-white
           rounded-lg py-2 px-4 w-[100%] hover:border-greyDark duration-300 transition mx-auto ${
             !main && "opacity-90"
           }`}

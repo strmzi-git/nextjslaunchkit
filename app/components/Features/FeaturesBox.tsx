@@ -38,7 +38,7 @@ const FeaturesBox = function ({
   };
 
   return (
-    <div className="w-[315px] rounded-xl border-2 relative border-greyDark p-4 flex flex-col">
+    <div className="w-[300px] sm:w-[315px] rounded-xl border-2 relative border-greyDark p-4 flex flex-col">
       <div className="w-[100%] flex items-center mb-2 justify-between">
         <p className="text-GreyDark text-lg">{featureTitle}</p>
         {Object.values(icons)[index]}

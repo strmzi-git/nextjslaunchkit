@@ -10,8 +10,8 @@ const PricingPage = function () {
       className="w-screen overflow-hidden relative  py-16 bg-primary  "
     >
       <Container props="flex items-center flex-col">
-        <div className="absolute pattern-polka-green-400/20 scale-[1.4] h-[300px] w-[200px] top-[-3%] left-[-5%]"></div>
-        <div className="absolute pattern-polka-green-400/20 scale-[1.4] h-[250px] w-[250px] bottom-[-2%] right-[15%]"></div>
+        <div className="absolute pattern-polka-green-400/20 scale-[1.4] h-[100px] md:h-[300px] w-[150px] md:w-[200px] top-[-1%] left-[-1%]"></div>
+        <div className="absolute pattern-polka-green-400/20 scale-[1.4] h-[100px] md:h-[250px] w-[150px] md:w-[250px] bottom-[-1%] right-[15%]"></div>
 
         <MainSubHeader
           section="Pricing"

@@ -16,7 +16,9 @@ const PricingLineItem = function ({
     <li
       className={`w-full flex items-center text-greyDark ${
         !content && "opacity-30"
-      } gap-[10px] ${main ? "text-base mb-2 " : "text-sm mb-2"}  
+      } gap-[10px] ${
+        main ? " text-sm sm:text-base mb-2 " : "text-xs sm:text-sm mb-2"
+      }  
       `}
     >
       <span className="min-w-[15px]">

@@ -16,7 +16,7 @@ const HeroPage = function () {
   return (
     <div
       className=" pattern-circuit-board-gray-400/30 relative
-    max-w-screen py-8  z-50 "
+    max-w-screen py-8 overflow-hidden z-50 "
     >
       <div className="absolute top-[-30%] z-0 left-0 h-[130%] opacity-80 w-[100%] bg-gradient-to-b from-transparent to-primary"></div>
       <div className="absolute bottom-0 left-[50%] transform opacity-80 translate-x-[-50%] h-[100%] w-[250%] bg-gradient-to-r from-transparent via-primary to-transparent z-0"></div>
@@ -31,7 +31,6 @@ const HeroPage = function () {
           <GradientButton
             content={config.heroPage.headerButtonCTA.primaryCTA}
           />
-
         </div>
       </Container>
     </div>
