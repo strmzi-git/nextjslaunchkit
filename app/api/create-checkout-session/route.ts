@@ -33,7 +33,7 @@ export async function POST(request: Request) {
         quantity: 1,
       },
     ],
-    discounts: [{ coupon: "hFyfSyBV" }],
+    discounts: [{ coupon: "kCfS0SC9" }],
     customer: currentUser?.stripeCustomerId as string,
 
     success_url: `${origin}/`,
