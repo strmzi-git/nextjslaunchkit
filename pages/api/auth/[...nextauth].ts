@@ -9,7 +9,7 @@ import stripePackage from "stripe";
 
 const prisma = new PrismaClient();
 const stripe = new stripePackage(
-  process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY_TEST as string
+  process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY as string
 );
 
 export const authOptions: AuthOptions = {
