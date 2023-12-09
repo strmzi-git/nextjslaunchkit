@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
   try {
     switch (eventType) {
       case "checkout.session.completed":
-        console.log("Reachedhere");
+        console.log("Reached here");
         const dataObject: Stripe.Checkout.Session = event?.data
           .object as Stripe.Checkout.Session;
 
@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
               stripeCustomerId: customerId,
             },
           });
-          console.log("Github username:", githubUsername?.name);
+          console.log("Github username:", githubUsername);
           const octokit = new Octokit({
             auth: process.env.NEXT_PUBLIC_GITHUB_ACCESS_TOKEN as string,
             userAgent: "strmzi-git",
@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
               },
               owner: "strmzi-git",
               repo: "fs-template",
-              username: githubUsername?.name as string,
+              username: githubUsername?.githubUsername as string,
               permission: "pull",
             }
           );
