@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
 
   try {
     switch (eventType) {
-      case "payment_intent.succeeded":
+      case "checkout.session.completed":
         const dataObject: Stripe.Checkout.Session = event?.data
           .object as Stripe.Checkout.Session;
 
@@ -77,9 +77,6 @@ export async function POST(request: NextRequest) {
         } catch (err) {
           console.log(err);
         }
-        break;
-      case "checkout.session.completed":
-        // Do something
         break;
       default:
       // Unhandled event type
