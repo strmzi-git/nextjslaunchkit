@@ -6,7 +6,6 @@ import { Octokit } from "octokit";
 
 export async function POST(request: NextRequest) {
   const body = await request.text();
-
   const stripe = new Stripe(
     process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string,
     {
@@ -33,6 +32,10 @@ export async function POST(request: NextRequest) {
 
     data = event.data;
     eventType = event.type;
+    console.log(
+      "Checkout session completed:",
+      eventType === "checkout.session.completed"
+    );
   } else {
     // Webhook signing is recommended, but if the secret is not configured in `config.js`,
     // retrieve the event data directly from the requestuest body.
@@ -43,6 +46,7 @@ export async function POST(request: NextRequest) {
   try {
     switch (eventType) {
       case "checkout.session.completed":
+        console.log("Reachedhere");
         const dataObject: Stripe.Checkout.Session = event?.data
           .object as Stripe.Checkout.Session;
 

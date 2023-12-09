@@ -27,8 +27,8 @@ const PricingBox = function ({ main }: PricingBoxProps) {
     // const priceId = main
     //   ? process.env.NEXT_PUBLIC_STRIPE_ADVANCED_PRICE_ID_TEST
     //   : process.env.NEXT_PUBLIC_STRIPE_BASIC_PRICE_ID_TEST;
-    const priceId = process.env.NEXT_PUBLIC_STRIPE_ADVANCED_FREE_PRICE_ID;
-    console.log(priceId);
+    const priceId = process.env.NEXT_PUBLIC_STRIPE_ADVANCED_PRICE_ID;
+    console.log("PRICEI:", priceId);
     if (!priceId || !process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) {
       return;
     }
