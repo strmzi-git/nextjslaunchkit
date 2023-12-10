@@ -33,9 +33,9 @@ export async function POST(request: Request) {
         quantity: 1,
       },
     ],
-    // discounts: [
-    //   { coupon: process.env.NEXT_PUBLIC_STRIPE_COUPON_TEST as string },
-    // ],
+    discounts: [
+      { coupon: process.env.NEXT_PUBLIC_STRIPE_COUPON_TEST as string },
+    ],
     customer: currentUser?.stripeCustomerId as string,
 
     success_url: `${origin}/?repoAccess=granted`,
