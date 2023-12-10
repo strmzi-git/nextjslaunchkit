@@ -46,38 +46,49 @@ export async function POST(request: NextRequest) {
   try {
     switch (eventType) {
       case "checkout.session.completed":
-        console.log("Reached here");
         const dataObject: Stripe.Checkout.Session = event?.data
           .object as Stripe.Checkout.Session;
 
         const customerId = dataObject.customer as string;
         try {
-          const githubUsername = await prisma.user.findUnique({
+          const user = await prisma.user.findUnique({
             where: {
               stripeCustomerId: customerId,
             },
           });
-          console.log("Github username:", githubUsername);
-          const octokit = new Octokit({
-            auth: process.env.NEXT_PUBLIC_GITHUB_ACCESS_TOKEN as string,
-            userAgent: "strmzi-git",
+
+          const newPaidCustomer = await prisma.paidCustomers.create({
+            data: {
+              githubUsername: user?.githubUsername as string,
+              email: user?.email as string,
+              stripeCustomerId: user?.stripeCustomerId as string,
+              name: user?.name as string,
+              basicTier: dataObject.amount_subtotal === 10000,
+              advancedTier: dataObject.amount_subtotal === 12500,
+            },
           });
-          const response = await octokit.request(
-            "PUT /repos/{owner}/{repo}/collaborators/{username}",
-            {
-              headers: {
-                Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_ACCESS_TOKEN}`,
-                "Content-Type": "application/json",
-                Accept: "application/vnd.github+json",
-              },
-              owner: "strmzi-git",
-              repo: "fs-template",
-              username: githubUsername?.githubUsername as string,
-              permission: "pull",
-            }
-          );
-          const { data, status, headers } = response;
-          console.log(data, status);
+          console.log(newPaidCustomer);
+
+          // const octokit = new Octokit({
+          //   auth: process.env.NEXT_PUBLIC_GITHUB_ACCESS_TOKEN as string,
+          //   userAgent: "strmzi-git",
+          // });
+          // const response = await octokit.request(
+          //   "PUT /repos/{owner}/{repo}/collaborators/{username}",
+          //   {
+          //     headers: {
+          //       Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_ACCESS_TOKEN}`,
+          //       "Content-Type": "application/json",
+          //       Accept: "application/vnd.github+json",
+          //     },
+          //     owner: "strmzi-git",
+          //     repo: "fs-template",
+          //     username: githubUsername?.githubUsername as string,
+          //     permission: "pull",
+          //   }
+          // );
+          // const { data, status, headers } = response;
+          // console.log(data, status);
         } catch (err) {
           console.log(err);
         }

@@ -15,6 +15,16 @@ model Leads {
   email String @unique
 }
 
+model PaidCustomers {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  email String 
+  githubUsername String
+  advancedTier Boolean
+  basicTier Boolean
+  name String
+  stripeCustomerId String
+}
+
 
 model User {
   id String @id @default(auto()) @map("_id") @db.ObjectId
