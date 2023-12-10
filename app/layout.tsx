@@ -10,8 +10,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "LaunchKit ",
-  description: "Build your landing page in minutes",
+  title: "Next.js LaunchKit  ",
+  description: "Build and Launch your SaaS landing page within 24h",
 };
 
 export default function RootLayout({

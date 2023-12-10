@@ -9,9 +9,31 @@ import SecondaryHeaderCTA from "./SecondaryHeaderCTA";
 import { config } from "@/config";
 
 import Navbar from "./Navbar";
+import { useParams, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const HeroPage = function () {
   const isTablet = useMediaQuery({ query: "(max-width: 625px)" });
+  const searchParams = useSearchParams();
+  const [hasRun, setHasRun] = useState(false);
+
+  useEffect(() => {
+    const access = searchParams?.get("repoAccess");
+    if (!hasRun) {
+      if (access === "granted") {
+        toast.success("Access granted. Check github or your email.");
+      } else if (access === "denied") {
+        toast.error(
+          "An error occurred during payment. Please try again or contact support."
+        );
+      }
+      setHasRun(true);
+    }
+    return () => {
+      setHasRun(false);
+    };
+  }, [searchParams]);
 
   return (
     <div

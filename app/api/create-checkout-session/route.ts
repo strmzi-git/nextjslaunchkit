@@ -38,8 +38,8 @@ export async function POST(request: Request) {
     // ],
     customer: currentUser?.stripeCustomerId as string,
 
-    success_url: `${origin}/`,
-    cancel_url: `${origin}/`,
+    success_url: `${origin}/?repoAccess=granted`,
+    cancel_url: `${origin}/?repoAccess=denied`,
     // IMPORTANT: Ask for customer consent before sending promotional emails
     // consent_collection: {
     //   promotions: "auto",
