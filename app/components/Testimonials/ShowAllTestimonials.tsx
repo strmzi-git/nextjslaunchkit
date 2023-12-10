@@ -14,7 +14,7 @@ const ShowAllTestimonials = function ({ setSizeUp }: ShowAllTestimonialsProps) {
     <div className="fixed h-[100vh] w-[100vw] top-[50%] left-[50%] translate-y-[-50%] translate-x-[-50%] bg-greyLight backdrop-blur-md bg-opacity-10 flex justify-center hide-scrollbar items-center z-[150]">
       <div
         id="allTestimonials"
-        className=" relative hide-scrollbar w-[90%] lg:w-[95%] xl:w-[80%] pt-[64px] md:pt-24 rounded-lg md:p-12 border border-greyLight  bg-primary bg-opacity-[70%]  h-[90%]  z-[200]"
+        className=" relative hide-scrollbar w-[95%] lg:w-[95%] xl:w-[80%] pt-12 rounded-lg md:p-12 border border-greyLight  bg-primary bg-opacity-[70%]  h-[90%]  z-[200]"
       >
         <div
           onClick={() => setSizeUp(false)}

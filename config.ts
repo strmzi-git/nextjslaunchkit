@@ -98,36 +98,12 @@ export const config = {
     testimonials: [
       {
         type: "quote",
-        imageSrc: "",
-        rating: 5,
-        quote:
-          "“Buld.it has honestly been such a help. I'm new t full-stack development and building a back-end just completely overwhelmed me until I fond this template. It helps guide you and you learn about best practices as well as the overall structure of a project”",
-        name: "Jonathan Birger",
-      },
-      {
-        type: "quote",
-        imageSrc: "",
-        rating: 5,
-        quote:
-          "“I'm so happy I came across this template, i've literally 2x or 3x my workflow simply because I don't need to spend so long configuring third-party integrations. Lifesaver”",
-        name: "Meryl Jones",
-      },
-      {
-        type: "quote",
         imageSrc: "/images/TestimonialPicture.png",
         rating: 5,
         quote:
-          "“I'm so happy I came across this template, i've literally 2x or 3x my workflow simply because I don't need to spend so long configuring third-party integrations. Lifesaver”",
-        name: "Karim Mevlawi",
+          "It literally gives you everything you need to build a landing page. The comments make it really easy to set everything up even if you've never worked with MongoDB or Stripe. Literally saved me a week or 2 of work. ",
+        name: "Karim Mevlevi",
         userTwitter: "https://twitter.com/karim_mev",
-      },
-      {
-        type: "quote",
-        imageSrc: "",
-        rating: 5,
-        quote:
-          "This template is so insanely helpful, i've been able to build 2 full-stack apps in the past week, usually it would take me 1 week for a single one. The template saves me so many headaches and reading documentation.",
-        name: "Jennifer Patty",
       },
     ],
   },

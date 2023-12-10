@@ -38,7 +38,7 @@ const SingleTestimonial = function ({
         <p className="text-secondary text-sm text-left leading-[25px] ">
           {quote}
         </p>
-        <div className="flex gap-2 items-center justify-between w-[100%]">
+        <div className="flex gap-2 mt-1 items-center justify-between w-[100%]">
           <div className="flex items-center gap-[10px]">
             {imageSrc ? (
               <Image

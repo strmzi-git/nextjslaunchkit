@@ -23,7 +23,7 @@ const NavbarItems = function () {
     <div className="">
       {fullScreenNavbar && (
         <div className=" w-[300px]  absolute top-[45vh] right-[50vw] translate-x-[50%] translate-y-[-50%] z-[200] flex flex-col items-center gap-4">
-          <LoginButton />
+          {showMobileNavbarItems && <LoginButton />}
           {showMobileNavbarItems &&
             config.heroPage.navbarItems.map((item, idx) => {
               return (
@@ -73,7 +73,7 @@ const NavbarItems = function () {
             setFullScreenNavbar(!fullScreenNavbar);
             setTimeout(() => {
               setShowMobileNavbarItems(!showMobileNavbarItems);
-            }, 300);
+            }, 500);
             if (!fullScreenNavbar) {
               document.body.style.overflow = "hidden";
             } else {

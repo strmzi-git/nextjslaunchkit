@@ -12,6 +12,7 @@ import Navbar from "./Navbar";
 import { useParams, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import ArrowSvg from "./ArrowSvg";
 
 const HeroPage = function () {
   const isTablet = useMediaQuery({ query: "(max-width: 625px)" });
@@ -34,11 +35,16 @@ const HeroPage = function () {
       setHasRun(false);
     };
   }, [searchParams]);
+  const scrollIntoView = (sectionid: string) => {
+    const section = document.getElementById(sectionid);
+
+    if (section) section.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <div
-      className=" pattern-circuit-board-gray-400/30 relative
-    max-w-screen py-8 overflow-hidden z-50 "
+      className=" min-h-screen pattern-circuit-board-gray-400/30 relative
+    max-w-screen py-6 overflow-hidden z-50 "
     >
       <div className="absolute top-[-30%] z-0 left-0 h-[130%] opacity-80 w-[100%] bg-gradient-to-b from-transparent to-primary"></div>
       <div className="absolute bottom-0 left-[50%] transform opacity-80 translate-x-[-50%] h-[100%] w-[250%] bg-gradient-to-r from-transparent via-primary to-transparent z-0"></div>
@@ -49,8 +55,10 @@ const HeroPage = function () {
         <HeaderText content={config.heroPage.headerTexts.primary} />
         <SecondaryHeaderText content={config.heroPage.headerTexts.secondary} />
 
-        <div className="mt-8 flex p-2 opacity-0 animate-moveInFromBelow4 items-center gap-4">
+        <div className="mt-8 relative flex z-20 p-2 items-center gap-4">
+          <ArrowSvg top="top-[5px]" left="left-[-45px]" />
           <GradientButton
+            functionality={() => scrollIntoView("Pricing")}
             content={config.heroPage.headerButtonCTA.primaryCTA}
           />
         </div>

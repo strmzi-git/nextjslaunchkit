@@ -15,8 +15,8 @@ const SecondaryHeaderCTA = function ({ isTablet }: SecondaryHeaderCTAProps) {
 
   return (
     <div
-      className={`flex relative z-40 items-center animate-moveInFromBelow opacity-0 gap-2 mt-18 ${
-        isTablet ? "my-8" : "my-10"
+      className={`flex relative z-40 items-center  gap-2  ${
+        isTablet ? "my-6" : "my-10"
       } md:gap-4 flex-col sm:flex-row`}
     >
       <p className="text-greyMedium text-xs md:text-sm">

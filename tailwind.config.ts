@@ -73,6 +73,7 @@ const config: Config = {
       screens: {
         "3xs": "320px",
         "2xs": "320px",
+        desktopNavbar: "780px",
         xs: "375px",
         sm: "425px",
         md: "768px",
