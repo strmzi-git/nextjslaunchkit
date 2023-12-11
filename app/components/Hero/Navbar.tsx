@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Container from "../Container";
 import LogoComponent from "../LogoComponent";
-import dynamic from "next/dynamic";
 import LoginButton from "./LoginButton";
 import { config } from "@/config";
 import { RxHamburgerMenu } from "react-icons/rx";

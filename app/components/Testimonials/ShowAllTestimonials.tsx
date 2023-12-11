@@ -1,3 +1,6 @@
+// This is the page that appears when you click "View all reviews" in the testimonials page.
+// setSizeUp is required to show/hide the popup window
+
 "use client";
 interface ShowAllTestimonialsProps {
   setSizeUp: (value: boolean) => void;
@@ -5,7 +8,6 @@ interface ShowAllTestimonialsProps {
 
 import { config } from "@/config";
 import { RiFullscreenExitLine } from "react-icons/ri";
-
 import SingleTestimonial from "./SingleTestimonial";
 import MainSubHeader from "../MainSubHeader";
 

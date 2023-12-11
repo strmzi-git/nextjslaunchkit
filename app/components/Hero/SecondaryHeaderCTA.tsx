@@ -7,6 +7,8 @@ interface SecondaryHeaderCTAProps {
 }
 
 const SecondaryHeaderCTA = function ({ isTablet }: SecondaryHeaderCTAProps) {
+  // Smooth scrolling a section into view.
+  // NOTE: The section must have an "id" (e.g: 'Pricing' for the pricing page)
   const scrollIntoView = (sectionid: string) => {
     const section = document.getElementById(sectionid);
 
@@ -24,7 +26,7 @@ const SecondaryHeaderCTA = function ({ isTablet }: SecondaryHeaderCTAProps) {
       </p>
       <ButtonPrimary
         functionality={() => scrollIntoView("Pricing")}
-        props={" text-xs  rounded-full px-2 gap-2 py-1"}
+        props={"text-xs  rounded-full px-2 gap-2 py-1"}
         content="Watch this repo"
         icon={BsGithub}
         iconSize={isTablet ? 20 : 22.5}

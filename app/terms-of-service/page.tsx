@@ -3,7 +3,7 @@ const Page = function () {
 };
 export default Page;
 
-// Effective Date: November 26, 2023
+// Effective Date: December 8, 2023
 
 // 1. Introduction
 

@@ -54,7 +54,7 @@ const SingleTestimonial = function ({
               </div>
             )}
 
-            <Link href={""} className="text-sm text-greyLight ">
+            <Link href={userLink || ""} className="text-sm text-greyLight ">
               {name}
             </Link>
           </div>

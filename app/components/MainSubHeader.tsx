@@ -1,3 +1,5 @@
+// Header component with Main and Subheader. Modify as you like. Used in every 'page' at the top. See interface for required and optional arguments
+
 interface MainSubHeaderProps {
   mainContent: string;
   subContent?: string;

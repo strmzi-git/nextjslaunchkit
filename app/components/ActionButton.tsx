@@ -1,19 +1,22 @@
-interface GradientButtonProps {
+interface ActionButtonProps {
   content: string;
+  // Should you have any other customisation in mind for the button, add it to props. Will auto-apply to the button.
   props?: string;
   functionality?: () => void;
 }
 
-const GradientButton = function ({
+const ActionButton = function ({
   content,
   props,
   functionality,
-}: GradientButtonProps) {
+}: ActionButtonProps) {
   return (
     <div className="relative group w-[140px] h-[50px]">
       <button
         onClick={functionality && functionality}
-        className=" top-0 left-0 absolute transform duration-100 transition translate-x-[-2.5px] translate-y-[-2.5px] p-[2px] z-50 text-primary px-4 py-3 bg-accentDark group border border-greyDark "
+        className={` ${
+          props && props
+        } top-0 left-0 absolute transform duration-100 transition translate-x-[-2.5px] translate-y-[-2.5px] p-[2px] z-50 text-primary px-4 py-3 bg-accentDark group border border-greyDark `}
       >
         <p className="relative z-50 text-primary">{content}</p>
       </button>
@@ -22,4 +25,4 @@ const GradientButton = function ({
   );
 };
 
-export default GradientButton;
+export default ActionButton;

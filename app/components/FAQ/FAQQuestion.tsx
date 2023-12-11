@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import { CiCircleQuestion } from "react-icons/ci";
 
 interface FAQQuestionProps {
@@ -9,9 +6,6 @@ interface FAQQuestionProps {
 }
 
 const FAQQuestion = function ({ question, answer }: FAQQuestionProps) {
-  const [active, setActive] = useState(false);
-  const [showAnswer, setShowAnswer] = useState(false);
-
   return (
     <div className="min-h-[200px] rounded-md bg-white w-[500px] max-w-[90%] flex gap-4">
       <div className=" h-[100%] ">

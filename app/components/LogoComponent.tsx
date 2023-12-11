@@ -1,3 +1,5 @@
+// Logo component visible in footer and header by default. Go to config.ts file and replace the current location to the actual location (e.g: /images/OurCoolLogo.png) of your logo.
+
 import { config } from "@/config";
 import Image from "next/image";
 
@@ -28,7 +30,7 @@ const LogoComponent = function ({
           textColor || "text-secondary"
         }`}
       >
-        LaunchKit
+        {config.appName}
       </p>
     </div>
   );

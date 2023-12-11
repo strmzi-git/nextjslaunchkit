@@ -12,19 +12,20 @@ const TestimonialsPage = function () {
   useEffect(() => {
     if (sizeUp) {
       // When the popup is open
-      document.body.style.overflow = "hidden"; // Disable scrolling on the body
-
+      // Disable scrolling on the body so they don't scroll the background
+      document.body.style.overflow = "hidden";
+      // Checks for the 'allTestimonials' popup. If it exists, it will apply the overflow-scroll to the window so the user can look through all the reviews
       const testimonialsEl = document.getElementById("allTestimonials");
       if (testimonialsEl) {
-        testimonialsEl.style.overflow = "scroll"; // Enable scrolling on the popup
+        testimonialsEl.style.overflow = "scroll";
       }
     } else {
-      // When the popup is closed
-      document.body.style.overflow = ""; // Re-enable scrolling on the body
-
+      // When the popup is closed, re-enable scrolling on the body
+      document.body.style.overflow = "";
       const testimonialsEl = document.getElementById("allTestimonials");
       if (testimonialsEl) {
-        testimonialsEl.style.overflow = ""; // Reset the popup's overflow style
+        // Reset the popup's overflow style
+        testimonialsEl.style.overflow = "";
       }
     }
   }, [sizeUp]);
@@ -45,31 +46,21 @@ const TestimonialsPage = function () {
       >
         {config.testimonialsPage.testimonials.map(
           (testimonial: any, idx: number) => {
-            if (testimonial.type == "quote") {
-              return (
-                <SingleTestimonial
-                  imageSrc={testimonial.imageSrc}
-                  rating={testimonial.rating}
-                  key={idx}
-                  testimonial
-                  additionalProps=" "
-                  name={testimonial.name}
-                  quote={testimonial.quote}
-                />
-              );
-            } else {
-              return (
-                <SingleTestimonial
-                  key={idx}
-                  coverImage={testimonial.coverImage}
-                  name={testimonial.name}
-                  websiteUrl={testimonial.websiteUrl}
-                />
-              );
-            }
+            return (
+              <SingleTestimonial
+                imageSrc={testimonial.imageSrc}
+                rating={testimonial.rating}
+                key={idx}
+                testimonial
+                additionalProps=" " // Incase you want to add additional styles
+                name={testimonial.name}
+                quote={testimonial.quote}
+              />
+            );
           }
         )}
       </div>
+      {/* Show the popup on click of "View all reviews" */}
       {sizeUp && (
         <ShowAllTestimonials setSizeUp={(value: boolean) => setSizeUp(value)} />
       )}

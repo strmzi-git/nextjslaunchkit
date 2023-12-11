@@ -3,7 +3,8 @@ const Page = function () {
 };
 export default Page;
 
-// REMEMBER TO ADD THE FACT THAT YOU TAKE THE CUSTOMERS EMAIL AND STORE IT IN THE DB FOR PROMOTIONAL PRUPOSES
+// IMPORTANT NOTE: If you do decide to ask the customer to send promotional emails, you will need to disclose whta you do with that informaation iin the privacy policy.
+
 // https://stripe.com/docs/payments/checkout/compliant-promotional-emails
 
 // Privacy Policy for LaunchKit

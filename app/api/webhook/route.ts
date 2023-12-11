@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { headers } from "next/headers";
 import prisma from "@/app/libs/prismadb";
-import { Octokit } from "octokit";
 
 export async function POST(request: NextRequest) {
   const body = await request.text();
@@ -32,10 +31,6 @@ export async function POST(request: NextRequest) {
 
     data = event.data;
     eventType = event.type;
-    console.log(
-      "Checkout session completed:",
-      eventType === "checkout.session.completed"
-    );
   } else {
     // Webhook signing is recommended, but if the secret is not configured in `config.js`,
     // retrieve the event data directly from the requestuest body.
@@ -59,45 +54,28 @@ export async function POST(request: NextRequest) {
 
           const newPaidCustomer = await prisma.paidCustomers.create({
             data: {
-              githubUsername: user?.githubUsername as string,
+              githubUsername: (user?.githubUsername as string) || "",
               email: user?.email as string,
               stripeCustomerId: user?.stripeCustomerId as string,
               name: user?.name as string,
+              // change this according to the the prices you've set.
+              // Note: 10000 === 100$ (it's measured in cents)
               basicTier: dataObject.amount_subtotal === 10000,
               advancedTier: dataObject.amount_subtotal === 12500,
             },
           });
-          console.log(newPaidCustomer);
-
-          // const octokit = new Octokit({
-          //   auth: process.env.NEXT_PUBLIC_GITHUB_ACCESS_TOKEN as string,
-          //   userAgent: "strmzi-git",
-          // });
-          // const response = await octokit.request(
-          //   "PUT /repos/{owner}/{repo}/collaborators/{username}",
-          //   {
-          //     headers: {
-          //       Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_ACCESS_TOKEN}`,
-          //       "Content-Type": "application/json",
-          //       Accept: "application/vnd.github+json",
-          //     },
-          //     owner: "strmzi-git",
-          //     repo: "fs-template",
-          //     username: githubUsername?.githubUsername as string,
-          //     permission: "pull",
-          //   }
-          // );
-          // const { data, status, headers } = response;
-          // console.log(data, status);
         } catch (err) {
           console.log(err);
         }
         break;
+      case "customer.subscription.created":
+      // Incase you're working with subscriptions your custom logic would go here. Make sure to handle all relevant events like subscription cancelling.
+
       default:
-      // Unhandled event type
+      // Handle unhandled event types (coming soon)
     }
   } catch (err: any) {
-    console.log("An error occured:", err.message);
+    console.log("An error occured while handling events:", err.message);
   }
   return NextResponse.json({});
 }

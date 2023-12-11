@@ -4,12 +4,12 @@ import Container from "../Container";
 import HeaderText from "./HeaderText";
 import { useMediaQuery } from "react-responsive";
 import SecondaryHeaderText from "./secondaryHeaderText";
-import GradientButton from "../GradientButton";
+import GradientButton from "../ActionButton";
 import SecondaryHeaderCTA from "./SecondaryHeaderCTA";
 import { config } from "@/config";
 
 import Navbar from "./Navbar";
-import { useParams, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import ArrowSvg from "./ArrowSvg";
@@ -20,6 +20,7 @@ const HeroPage = function () {
   const [hasRun, setHasRun] = useState(false);
 
   useEffect(() => {
+    // For when the user gets redirected to the homepage ("/") after a successful or paid stripe checkout session. See /api/create-checkout-session for more info (successURL, cancelURL)
     const access = searchParams?.get("repoAccess");
     if (!hasRun) {
       if (access === "granted") {
@@ -29,12 +30,16 @@ const HeroPage = function () {
           "An error occurred during payment. Please try again or contact support."
         );
       }
+      // Avoid it from running multiple times
       setHasRun(true);
     }
+    // Clean-up function (optional)
     return () => {
       setHasRun(false);
     };
   }, [searchParams]);
+  // Smooth scrolling a section into view.
+  // NOTE: The section must have an "id" (e.g: 'Pricing' for the pricing page)
   const scrollIntoView = (sectionid: string) => {
     const section = document.getElementById(sectionid);
 

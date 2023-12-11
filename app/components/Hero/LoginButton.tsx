@@ -9,7 +9,6 @@ const LoginButton = function () {
   const userSession = useSession();
   return (
     <>
-      {" "}
       {userSession.data?.user ? (
         <div className="border p-2  flex items-center gap-2">
           <Image
@@ -28,6 +27,7 @@ const LoginButton = function () {
       ) : (
         <ButtonPrimary
           content="Sign In"
+          // if you want to use a different provider you can simply replace "github" with the other provider. ("google")
           functionality={() => signIn("github", { redirect: false })}
         />
       )}

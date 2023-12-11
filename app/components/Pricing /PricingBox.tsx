@@ -1,3 +1,6 @@
+// Pricing box to display your offer
+// 'Main' argument is required for your main product/service you wish to sell.
+// If main is passed in as true, will take the primary product offer (the one you recommend your leads to purchase)
 "use client";
 
 import { config } from "@/config";
@@ -24,27 +27,27 @@ const PricingBox = function ({ main }: PricingBoxProps) {
       toast.error("Please log in first");
       return;
     }
+    // Don't forgot to fill iin your price_id for stripe in the environment variable. (DO NOT PUT INTO config.ts FILE instead)
     const priceId = main
       ? process.env.NEXT_PUBLIC_STRIPE_ADVANCED_PRICE_ID
       : process.env.NEXT_PUBLIC_STRIPE_BASIC_PRICE_ID;
 
-    console.log("PRICEID:", priceId);
-    if (!priceId || !process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) {
-      return;
-    }
+    if (!priceId || !process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) return;
+
     const stripe = (await loadStripe(
       process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
     )) as any;
 
     try {
+      // Creates a checkout session. See /api/create-checkout-session for more information.
       const response = await axios.post("/api/create-checkout-session", {
         priceId,
         currentUserEmail: data?.user?.email,
       });
-      const result = await stripe.redirectToCheckout({
+      // Redirects the user to the checkout page
+      await stripe.redirectToCheckout({
         sessionId: response.data.id,
       });
-      console.log(result);
     } catch (err: any) {
       console.log("Oh no, an error: ", err.message);
     }
@@ -100,14 +103,14 @@ const PricingBox = function ({ main }: PricingBoxProps) {
         {main
           ? config.pricingPage.primaryProduct.discountedPrice
           : config.pricingPage.seconaryProduct.discountedPrice}
-        $ <span className="text-sm">(only 6 left)</span>
+        $
       </p>
 
       <div className="w-[90%] mx-auto">
         <ButtonPrimary
           showLogo
           functionality={() => {
-            handleCheckout((main && main) || false);
+            handleCheckout(main || false);
           }}
           content={
             main

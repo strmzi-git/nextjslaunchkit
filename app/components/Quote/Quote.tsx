@@ -1,3 +1,6 @@
+// Not included in the page by default. But meant for any quote you'd like to share with your audience. Could be the best review from your favourite customer if you like.
+// The component does not take any argument, instead you'll have to fill out the "quote" section in config.ts
+
 import { config } from "@/config";
 import { FaQuoteLeft } from "react-icons/fa";
 import { FaQuoteRight } from "react-icons/fa";

@@ -14,17 +14,17 @@ export async function POST(request: Request) {
       email: leadEmail,
     },
   });
+  // handle already signed-up user
   if (user?.email)
     return NextResponse.json({
       message: "This user is already signed up",
     });
-
+  // Sign up user if they don't exist yet
   const dbResponse = await prisma.leads.create({
     data: {
       email: leadEmail,
     },
   });
-  console.log(dbResponse);
 
   return NextResponse.json({
     status: 201,

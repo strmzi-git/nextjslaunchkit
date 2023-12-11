@@ -1,6 +1,3 @@
-import { config } from "@/config";
-import { useMediaQuery } from "react-responsive";
-
 interface SecondaryHeaderTextProps {
   content?: string;
 }

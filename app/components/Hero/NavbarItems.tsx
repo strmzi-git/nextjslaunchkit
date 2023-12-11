@@ -1,28 +1,27 @@
 "use client";
-import { RxExit } from "react-icons/rx";
+
 import { config } from "@/config";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useMediaQuery } from "react-responsive";
-import ButtonPrimary from "../ButtonPrimary";
-import { signIn, signOut, useSession } from "next-auth/react";
-import Image from "next/image";
 import { useState } from "react";
 import LoginButton from "./LoginButton";
 
 const NavbarItems = function () {
+  // isTablet will be true if the screensize is greater than 768px
+  const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
   const [fullScreenNavbar, setFullScreenNavbar] = useState(false);
   const [showMobileNavbarItems, setShowMobileNavbarItems] = useState(false);
-
+  // Smooth scrolling a section into view.
+  // NOTE: The section must have an "id" (e.g: 'Pricing' for the pricing page)
   const scrollIntoView = (sectionid: string) => {
     const section = document.getElementById(sectionid);
     if (section) section.scrollIntoView({ behavior: "smooth" });
   };
-  const isTablet = useMediaQuery({ query: "(min-width: 768px)" });
-
   return (
     <div className="">
       {fullScreenNavbar && (
         <div className=" w-[300px]  absolute top-[45vh] right-[50vw] translate-x-[50%] translate-y-[-50%] z-[200] flex flex-col items-center gap-4">
+          {/* When on mobile and the user clicks the Burger Menu, show the Login button and the other navigation items */}
           {showMobileNavbarItems && <LoginButton />}
           {showMobileNavbarItems &&
             config.heroPage.navbarItems.map((item, idx) => {
@@ -74,6 +73,7 @@ const NavbarItems = function () {
             setTimeout(() => {
               setShowMobileNavbarItems(!showMobileNavbarItems);
             }, 500);
+            // Avoids background scrolling when the navigation popup is being shown
             if (!fullScreenNavbar) {
               document.body.style.overflow = "hidden";
             } else {

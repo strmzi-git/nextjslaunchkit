@@ -43,12 +43,14 @@ const Footer = function () {
           LEGAL
         </p>
         <ul className="list-none flex flex-col gap-4">
+          {/* <p> tag will be converted to <Link/> once the page is set-up */}
           <p
             className="text-greyDark text-sm cursor-pointer"
             onClick={() => toast.error("Hey, sorry that doesn't exist yet...")}
           >
             Privacy Policy
           </p>
+          {/* <p> tag will be converted to <Link/> once it's set-up */}
           <p
             className="text-greyDark text-sm cursor-pointer"
             onClick={() => toast.error("Hey, sorry that doesn't exist yet...")}

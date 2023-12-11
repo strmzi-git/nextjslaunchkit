@@ -10,22 +10,23 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// If you're looking for people to sign-up to your email-list or get notified when you launch, they will be added as a 'Lead' to your DB. (See /components/Leads for more info)
 model Leads {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   email String @unique
 }
 
+// Incase you want to do a pre-sale, you can add the customer to your DB and, at a later date, deliver your product/service. See /api/webhook for implementation
 model PaidCustomers {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   email String 
-  githubUsername String
   advancedTier Boolean
   basicTier Boolean
   name String
   stripeCustomerId String
 }
 
-
+// Default user model. Feel free to make any changes you like. Whenever you make a change, don't forgot to run 'npx prisma generate' to update the client and 'npx prisma db push' to update your DB. See the prisma documentation for any questions regarding the properties
 model User {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   name String?
@@ -41,6 +42,7 @@ model User {
   createdAt DateTime @default(now())
 }
 
+// Required for next-auth, no need to make any changes. 
 model Account {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   userId String @db.ObjectId

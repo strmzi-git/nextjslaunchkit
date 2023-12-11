@@ -19,13 +19,14 @@ export default async function Home() {
       className="bg-primaryBlack relative bg-opacity-[50] 
    max-w-screen hide-scrollbar"
     >
-      {/* <iv className="h-[70%] w-[70%] fixed border z-0 blur-2xl rounded-full bg-primaryBlack top-[50%] left-[50%] transform translate-y-[-50%] translate-x-[-50%]"></iv> */}
+      {/* Required for react-hot-toast library to work. Use like this: toast.success(message) toast.error(message)
+       */}
       <Toaster />
+      {/*  */}
       <HeroPage />
       <CarouselParent />
       <FeaturesPage />
       <HowItWorks />
-      {/* <InfoPage /> */}
       <TestimonialsPage />
       {/* <Quote /> */}
       <PricingPage />

@@ -23,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={poppins.className}>
         <NextAuthProvider>{children}</NextAuthProvider>
+        {/* For vercel analytics (page visitors, speed insights) */}
         <Analytics />
         <SpeedInsights />
       </body>

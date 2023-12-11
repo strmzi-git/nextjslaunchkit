@@ -68,9 +68,16 @@ export const config = {
     ],
   },
   howItWorksPage: {
+    phaseHeaders: [
+      "Initial Idea",
+      "Market Research",
+      "Design and Development",
+      "Launch Date",
+    ],
+    mainPhaseSubHeader: "Weeks worth of work, already done for you.",
     header: "It's simple, really",
     subheader: [
-      "❌ Stop spending days, or weeks even, only to validate a failed idea",
+      "❌ Stop spending weeks, only to validate a failed idea",
       "✅ Get an idea, validate your idea within 1 day, iterate until you find success.",
     ],
     cardContents: [
@@ -90,6 +97,7 @@ export const config = {
       "Terms and Conditions template",
     ],
   },
+
   testimonialsPage: {
     header: "Have a look at what users say",
     subheader: [
@@ -113,10 +121,12 @@ export const config = {
     quoteAuthor: "",
   },
   pricingPage: {
+    // This is your 'recommended' product/service
     primaryProduct: {
       discountedPrice: 75,
       originalPrice: 125,
     },
+    // This is the less expensive one
     seconaryProduct: {
       discountedPrice: 50,
       originalPrice: 100,
@@ -145,6 +155,7 @@ export const config = {
       "Privacy Policy template",
       "Terms and Conditions template",
     ],
+    // The following 2 are for the features available (see pricingLineItems above) in each of your products/services
     primaryPricingItems: [
       true,
       true,
@@ -184,8 +195,10 @@ export const config = {
   },
   faqPage: {
     subHeader: "Still got questions? Feel free to DM me",
-    contactTag: "@strmzi.ai",
-    linkToContact: "https://twitter.com/strmziai",
+    // Your tag on twitter, linkedIn, wherever you want to be contacted from (for example: @strmzi.ai)
+    contactTag: "",
+    // A link to your page
+    linkToContact: "",
     FaqQuestions: [
       "What tech stack does this template use?",
       "What if I don't know the technologies?",
@@ -202,5 +215,13 @@ export const config = {
       "The Advanced Template can already be pre-ordered (at 75% discount) and will arrive within 1-2 weeks on the basic tier launch. ",
       "Ofcourse! If you're unsatisfied with the boilerplate, we will give you a 100% refund if you request a refund with 14 days. DM me on Twitter @strmzi.ai for more details.",
     ],
+  },
+  emailSignUpForm: {
+    header: "Stay informed with new features and latest offers",
+    persuasiveText:
+      "Say goodbye to spending weeks building a landing page. Instead, LaunchKit does it for you! Production ready next.js boilerplate with everything you need to get leads, sell your product/service and track analytics",
+  },
+  footerPage: {
+    subtitle: "The Template for Effortless Design and Development",
   },
 };
