@@ -4,7 +4,7 @@ import Container from "../Container";
 import HeaderText from "./HeaderText";
 import { useMediaQuery } from "react-responsive";
 import SecondaryHeaderText from "./secondaryHeaderText";
-import GradientButton from "../ActionButton";
+import ActionButton from "../ActionButton";
 import SecondaryHeaderCTA from "./SecondaryHeaderCTA";
 import { config } from "@/config";
 
@@ -62,7 +62,7 @@ const HeroPage = function () {
 
         <div className="mt-8 relative flex z-20 p-2 items-center gap-4">
           <ArrowSvg top="top-[5px]" left="left-[-45px]" />
-          <GradientButton
+          <ActionButton
             functionality={() => scrollIntoView("Pricing")}
             content={config.heroPage.headerButtonCTA.primaryCTA}
           />
