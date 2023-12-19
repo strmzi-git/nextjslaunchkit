@@ -38,7 +38,7 @@ However, if you are unfamiliar with, or new to the tech stack, _no worries_. The
 
 ## Installation and Setup
 
-1. Clone the repo → `git clone [repository-url]`
+1. Clone the repo → `git clone https://github.com/strmzi-git/NextJsLaunchKit.git`
 2. Navigate to the project directory → `cd [project-name]`
 3. Install required dependencies → `npm install`
 4. Start the development server → `npm run dev`
