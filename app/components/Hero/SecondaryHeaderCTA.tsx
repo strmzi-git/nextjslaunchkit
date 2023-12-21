@@ -1,6 +1,6 @@
 import { BsGithub } from "react-icons/bs";
-import ButtonPrimary from "../ButtonPrimary";
 import { config } from "@/config";
+import PrimaryButton from "../reusables/PrimaryButton";
 
 interface SecondaryHeaderCTAProps {
   isTablet: boolean;
@@ -24,12 +24,12 @@ const SecondaryHeaderCTA = function ({ isTablet }: SecondaryHeaderCTAProps) {
       <p className="text-greyMedium text-xs md:text-sm">
         {config.heroPage.tertiaryCTA}
       </p>
-      <ButtonPrimary
+      <PrimaryButton
+        switchColorOnHover
+        small
         functionality={() => scrollIntoView("Pricing")}
-        props={"text-xs  rounded-full px-2 gap-2 py-1"}
-        content="Watch this repo"
+        text="Watch repository"
         icon={BsGithub}
-        iconSize={isTablet ? 20 : 22.5}
       />
     </div>
   );

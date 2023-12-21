@@ -4,6 +4,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import { RxExit } from "react-icons/rx";
 import ButtonPrimary from "../ButtonPrimary";
+import PrimaryButton from "../reusables/PrimaryButton";
 
 const LoginButton = function () {
   const userSession = useSession();
@@ -25,8 +26,10 @@ const LoginButton = function () {
           </div>
         </div>
       ) : (
-        <ButtonPrimary
-          content="Sign In"
+        <PrimaryButton
+          roundedSmall
+          text="Sign In"
+          noBorder
           // if you want to use a different provider you can simply replace "github" with the other provider. ("google")
           functionality={() => signIn("github", { redirect: false })}
         />

@@ -12,6 +12,7 @@ import HowItWorks from "./components/HowItWorks/HowItWorksPage";
 import Footer from "./components/Footer/Footer";
 import EmailListSignUp from "./components/Leads/EmailListSignUp";
 import CarouselParent from "./components/Carousel/CarouselParent";
+import Login from "./components/Login/Login";
 
 export default async function Home() {
   return (
@@ -23,13 +24,14 @@ export default async function Home() {
        */}
       <Toaster />
       {/*  */}
+      <Login />
       <HeroPage />
       <CarouselParent />
       <FeaturesPage />
-      <HowItWorks />
+      {/* <HowItWorks /> */}
       <TestimonialsPage />
       {/* <Quote /> */}
-      <PricingPage />
+      {/* <PricingPage /> */}
       <FAQPage />
       <EmailListSignUp />
       <Footer />

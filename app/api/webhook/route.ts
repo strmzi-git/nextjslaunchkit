@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
             },
           });
 
-          const newPaidCustomer = await prisma.paidCustomers.create({
+          await prisma.paidCustomers.create({
             data: {
               githubUsername: (user?.githubUsername as string) || "",
               email: user?.email as string,

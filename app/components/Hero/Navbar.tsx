@@ -57,7 +57,7 @@ const Navbar = function () {
                   className={` ${
                     index !== config.heroPage.navbarItems.length - 1 && ""
                   } 
-            cursor-pointer text-center text-sm  text-secondary`}
+            cursor-pointer text-center text-sm md:text-base text-secondary`}
                 >
                   {item}
                 </button>
@@ -92,7 +92,7 @@ const Navbar = function () {
             <RxHamburgerMenu
               height={35}
               width={35}
-              className="  cursor-pointer z-[200] relative text-secondary"
+              className="cursor-pointer z-[200] relative text-secondary"
             />
           </div>
         </div>
