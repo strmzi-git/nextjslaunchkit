@@ -12,16 +12,16 @@ import StripeLogo from "./StripeLogo";
 
 const CarouselParent = function () {
   return (
-    <div className="pt-16 w-screen mx-auto opacity-50 bg-white flex overflow-hideen">
+    <div className=" pt-16 w-[100%] mx-auto opacity-50 bg-white flex overflow-hideen">
       <div className="w-[90%] sm:w-[80%] md:w-[70%] lg:w-[55%] mx-auto">
         <Marquee
           play
           direction="left"
-          speed={50}
+          speed={20}
           loop={0}
           autoFill
           gradient
-          gradientWidth={150}
+          gradientWidth={100}
           gradientColor="white"
         >
           <GithubLogo />

@@ -15,7 +15,7 @@ const LoginButton = function () {
           <Image
             src={userSession.data.user.image || ""}
             alt="User profile picture"
-            className="rounded-full"
+            className=" mask-hexagon mask"
             height={30}
             width={30}
           />
@@ -27,9 +27,7 @@ const LoginButton = function () {
         </div>
       ) : (
         <PrimaryButton
-          roundedSmall
           text="Sign In"
-          noBorder
           // if you want to use a different provider you can simply replace "github" with the other provider. ("google")
           functionality={() => signIn("github", { redirect: false })}
         />

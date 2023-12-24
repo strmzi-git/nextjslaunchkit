@@ -6,6 +6,7 @@ import LogoComponent from "../LogoComponent";
 import LoginButton from "./LoginButton";
 import { config } from "@/config";
 import { RxHamburgerMenu } from "react-icons/rx";
+import PrimaryButton from "../reusables/PrimaryButton";
 
 const Navbar = function () {
   const [showMobileNavbarItems, setShowMobileNavbarItems] = useState(false);
@@ -18,9 +19,7 @@ const Navbar = function () {
     <div className="z-[100]  overflow-visible ">
       <Container
         showOverflow
-        props={
-          "flex w-screen items-center gap-8 py-2 px-6 sm:px-12 md:px-18 lg:px-56 justify-between relative z-50"
-        }
+        props={"flex items-center gap-8   justify-between relative z-50"}
       >
         <div className=" w-[300px]  absolute top-[45vh] right-[50vw] translate-x-[50%] translate-y-[-50%] z-[200] flex flex-col items-center gap-4">
           {showMobileNavbarItems && <LoginButton />}
@@ -47,24 +46,24 @@ const Navbar = function () {
             })}
         </div>
         <div className={`flex w-full gap-6 justify-between items-center py-4`}>
-          <LogoComponent />
+          <LogoComponent
+            imageHeight={30}
+            imageWidth={30}
+            textSize="text-base"
+          />
           <div className="desktopNavbar:flex hidden items-center gap-4">
             {config.heroPage.navbarItems.map((item, index) => {
               return (
-                <button
-                  onClick={() => scrollIntoView(item)}
+                <PrimaryButton
+                  functionality={() => scrollIntoView(item)}
                   key={index}
-                  className={` ${
-                    index !== config.heroPage.navbarItems.length - 1 && ""
-                  } 
-            cursor-pointer text-center text-sm md:text-base text-secondary`}
-                >
-                  {item}
-                </button>
+                  daisyUiStyles="btn text-secondary btn-sm btn-ghost"
+                  text={item}
+                />
               );
             })}
-            <LoginButton />
           </div>
+          <LoginButton />
           <div
             className="relative desktopNavbar:hidden"
             onClick={() => {

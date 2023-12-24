@@ -43,7 +43,7 @@ const FeaturesBox = function ({
           <div key={idx} className="flex gap-4 items-center">
             <FaRegCheckCircle
               size={20}
-              className={"text-green-600 min-w-[20px]"}
+              className={"text-accentDark min-w-[20px]"}
             />
 
             <p key={idx} className="text-greyMedium text-sm ">
@@ -51,7 +51,7 @@ const FeaturesBox = function ({
             </p>
           </div>
         ))}
-        <div className=" bg-green-600 flex items-center justify-center rounded-full mt-4 w-[115px]">
+        <div className=" bg-accentDark flex items-center justify-center rounded-full mt-4 w-[115px]">
           <p className="text-white font-semibold uppercase py-1 text-xs ">
             Save {config.featuresPage.timeSaved[index]}
           </p>

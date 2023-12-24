@@ -1,24 +1,19 @@
 "use client";
-import { FaLongArrowAltRight } from "react-icons/fa";
 
 export { SessionProvider } from "next-auth/react";
 import Container from "../Container";
 import HeaderText from "./HeaderText";
 import { useMediaQuery } from "react-responsive";
 import SecondaryHeaderText from "./secondaryHeaderText";
-import ActionButton from "../ActionButton";
-import SecondaryHeaderCTA from "./SecondaryHeaderCTA";
 import { config } from "@/config";
-
 import Navbar from "./Navbar";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import ArrowSvg from "./ArrowSvg";
 import PrimaryButton from "../reusables/PrimaryButton";
+import CarouselParent from "../Carousel/CarouselParent";
 
 const HeroPage = function () {
-  const isTablet = useMediaQuery({ query: "(max-width: 625px)" });
   const searchParams = useSearchParams();
   const [hasRun, setHasRun] = useState(false);
 
@@ -50,35 +45,40 @@ const HeroPage = function () {
   };
 
   return (
-    <div
-      className=" min-h-screen  pattern-architect-gray-400/30 relative
-    max-w-screen py-6 overflow-hidden z-50 "
-    >
-      <div className="absolute top-[-30%] z-0 left-0 h-[130%] opacity-80 w-[100%] bg-gradient-to-b from-transparent to-primary"></div>
-      <div className="absolute bottom-0 left-[50%] transform opacity-80 translate-x-[-50%] h-[100%] w-[250%] bg-gradient-to-r from-transparent via-primary to-transparent z-0"></div>
+    <div className="min-h-screen relative max-w-screen overflow-hidden z-50 px-6 w-[90vw] md:w-[85vw] lg:w-[85vw] mx-auto ">
       <Navbar />
       {/* <Navbar /> */}
-      <Container props=" pt-20 flex flex-col items-center">
-        {/* <SecondaryHeaderCTA isTablet={isTablet} /> */}
-
-        <HeaderText content={config.heroPage.headerTexts.primary} />
-        <SecondaryHeaderText content={config.heroPage.headerTexts.secondary} />
-
-        <div className="mt-8 relative flex z-20 p-2 items-center gap-4">
-          <ArrowSvg top="top-[5px]" left="left-[-45px]" />
-          {/* <ActionButton
+      <Container props="flex mt-14">
+        <Container props=" w-[50%] flex flex-col">
+          {/* <SecondaryHeaderCTA isTablet={isTablet} /> */}
+          <HeaderText />
+          <SecondaryHeaderText
+            content={config.heroPage.headerTexts.secondary}
+          />
+          <div className="mt-8 relative flex z-20  items-center gap-4">
+            {/* <ArrowSvg top="top-[5px]" left="left-[-45px]" /> */}
+            {/* <ActionButton
             functionality={() => scrollIntoView("Pricing")}
             content={config.heroPage.headerButtonCTA.primaryCTA}
           /> */}
-          <PrimaryButton
-            iconRight
-            functionality={() => scrollIntoView("Pricing")}
-            text={"Free Access"}
-            switchColorOnHover
-            icon={FaLongArrowAltRight}
-          />
-        </div>
+            <PrimaryButton
+              // iconRight
+              functionality={() => scrollIntoView("Pricing")}
+              text={"Free Access"}
+              // icon={FaLongArrowAltRight}
+            />
+            <PrimaryButton
+              text="Learn more"
+              daisyUiStyles="btn-primary text-secondary btn"
+              functionality={() => scrollIntoView("Features")}
+            />
+          </div>
+        </Container>
+        <Container props=" flex w-[50%] items-center justify-end">
+          <div className="h-[350px] w-[90%] bg-accent rounded-lg"></div>
+        </Container>
       </Container>
+      <CarouselParent />
     </div>
   );
 };

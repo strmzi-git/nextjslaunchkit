@@ -1,10 +1,12 @@
-interface HeaderTextProps {
-  content: string;
-}
-const HeaderText = function ({ content }: HeaderTextProps) {
+const HeaderText = function () {
   return (
-    <div className=" text-secondary relative z-40 text-3xl md:text-5xl xl:text-6xl md:leading-[65px] xl:leading-[75px] leading-[45px] max-w-[1000px] font-bold mb-8 text-center">
-      {content}
+    <div className=" text-secondary relative z-40 text-3xl xl:leading-[55px] md:text-4xl xl:text-5xl max-w-[95%] font-bold mb-8 ">
+      Next.Js Boilerplate for{" "}
+      <div className="bg-accent w-fit inline-block text-white px-2 rounded-sm transform -rotate-1">
+        {" "}
+        Effortless Design
+      </div>{" "}
+      and Development
     </div>
   );
 };
