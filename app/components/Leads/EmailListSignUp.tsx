@@ -22,12 +22,9 @@ const EmailListSignUp = function () {
   return (
     <div
       id="email-signup"
-      className="w-[100%] bg-white relative py-16 flex flex-col items-center justify-center"
+      className="w-[100%] relative py-16 flex flex-col items-center justify-center"
     >
-      {/* Green background */}
-      <div className=" absolute z-0 w-[90vw] h-[575px] top-[50%]  transform translate-y-[-48%] translate-x-[-49%] sm:h-[540px] md:h-[400px] left-[50%] rounded-lg bg-accentDark"></div>
-      {/*  */}
-      <div className="rounded-lg overflow-hidden relative z-50 min-h-[400px] md:h-[400px] sm:max-h-[600px] w-[90vw] bg-primary p-24 sm:p-18  flex flex-col items-center justify-center">
+      <div className="rounded-lg border overflow-hidden relative z-50 md:h-[300px] sm:max-h-[600px] w-[90vw] bg-primary flex flex-col items-center justify-center">
         <h3 className="font-bold max-w-[800px] text-center min-w-[350px] md:w-auto  text-3xl sm:text-4xl mb-4">
           {config.emailSignUpForm.header}
         </h3>
@@ -35,11 +32,9 @@ const EmailListSignUp = function () {
           {config.emailSignUpForm.persuasiveText}
         </p>
         <div className="min-w-[275px]  sm:w-[350px] md:w-[500px] ">
-          <EmailInput onEmailSubmit={onSubmitEmail} />
+          <EmailInput />
         </div>
         {/* Patterns in the top left and bottom right corner */}
-        <div className="pattern-polka-green-400/60 h-[100px] md:h-[200px] z-0 w-[100px] absolute top-[-40px] left-[-20px]"></div>
-        <div className="pattern-polka-green-400/60 h-[100px] md:h-[200px] z-0 w-[100px] absolute bottom-[-40px] right-[-20px]"></div>
       </div>
     </div>
   );

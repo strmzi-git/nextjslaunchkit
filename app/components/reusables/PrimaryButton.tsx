@@ -21,14 +21,14 @@ const PrimaryButton = function ({
 }: PrimaryButtonProps) {
   return (
     <button
-      className={`flex items-center gap-1 
+      className={`flex items-center font-[400] gap-1 
       ${extraProps && extraProps} 
       btn
      ${daisyUiStyles || "btn-accent text-white"}
   `}
       onClick={functionality}
     >
-      {iconRight && <p className="font-[400]">{text}</p>}
+      {iconRight && <p className="">{text}</p>}
 
       {Icon && (
         <Icon
@@ -39,7 +39,7 @@ const PrimaryButton = function ({
           `}
         />
       )}
-      {!iconRight && <p className="font-[400]">{text}</p>}
+      {!iconRight && <p className="">{text}</p>}
     </button>
   );
 };

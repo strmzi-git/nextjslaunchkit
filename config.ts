@@ -189,7 +189,7 @@ export const config = {
     ],
   },
   emailSignUpForm: {
-    header: "Stay informed of new features ",
+    header: "Get notified when we release new features",
     persuasiveText:
       "Say goodbye to spending weeks building a landing page. Instead, LaunchKit does it for you! Production ready next.js boilerplate with everything you need to get leads, sell your product/service and track analytics",
   },

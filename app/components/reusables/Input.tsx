@@ -7,7 +7,7 @@
 // For example, if they are submitting their email to your newsletter.
 "use client";
 
-import ButtonPrimary from "./ButtonPrimary";
+import ButtonPrimary from "../ButtonPrimary";
 import { useMediaQuery } from "react-responsive";
 interface SubmitInputProps {
   setUsername: (name: string) => void;
