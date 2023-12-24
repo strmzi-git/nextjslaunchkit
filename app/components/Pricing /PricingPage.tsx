@@ -1,18 +1,21 @@
 import { config } from "@/config";
 import Container from "../Container";
 import PricingBox from "./PricingBox";
-import MainSubHeader from "../MainSubHeader";
+import MainSubHeader from "../reusables/MainSubHeader";
+import { getServerSession } from "next-auth";
+import { handlePricingBoxCheckout } from "@/app/functions/payment";
 
-const PricingPage = function () {
+const PricingPage = async function () {
+  const userData = await getServerSession();
+  // Put this into vercel environment variables
+  const priceId = process.env.STRIPE_PRICE_ID as string;
+
   return (
     <div
       id="Pricing"
-      className="w-screen overflow-hidden relative  py-16 bg-primary  "
+      className="w-screen bg-white overflow-hidden relative py-8   "
     >
       <Container props="flex items-center flex-col">
-        <div className="absolute pattern-polka-green-400/20 scale-[1.4] h-[100px] md:h-[300px] w-[150px] md:w-[200px] top-[-1%] left-[-1%]"></div>
-        <div className="absolute pattern-polka-green-400/20 scale-[1.4] h-[100px] md:h-[250px] w-[150px] md:w-[250px] bottom-[-1%] right-[15%]"></div>
-
         <MainSubHeader
           section="Pricing"
           mainContent={config.pricingPage.actionCall}
@@ -20,8 +23,18 @@ const PricingPage = function () {
         />
 
         <div className="flex items-center mb-12 gap-16 flex-col md:flex-row ">
-          <PricingBox />
-          <PricingBox main />
+          <PricingBox
+            title={config.pricingPage.pricingProductNames.primary}
+            free
+            functionality={async () => {
+              "use server";
+              handlePricingBoxCheckout(userData?.user.email, priceId);
+            }}
+            subtext={config.pricingPage.pricingProductNames.primarySubtext}
+            buttonCTA={config.pricingPage.primaryPricingCTA}
+            lineItems={config.pricingPage.pricingLineItems}
+            includedFeatures={config.pricingPage.primaryFeaturesInclude}
+          />
         </div>
       </Container>
     </div>

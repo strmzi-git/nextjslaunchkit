@@ -19,7 +19,7 @@ export const config = {
     featuresPageHeader: {
       primary: "What do you get?",
       secondary: [
-        "✅ Everything you need to validate any ideas you have within minutes.",
+        "Everything you need to validate any ideas you have within minutes.",
       ],
     },
     featureTitles: [
@@ -121,45 +121,32 @@ export const config = {
     quoteAuthor: "",
   },
   pricingPage: {
-    // This is your 'recommended' product/service
     primaryProduct: {
-      discountedPrice: 75,
-      originalPrice: 125,
+      discountedPrice: "",
+      originalPrice: "",
     },
-    // This is the less expensive one
-    seconaryProduct: {
-      discountedPrice: 50,
-      originalPrice: 100,
-    },
+    // Add products as you need, just copy paste the "primaryProduct" above and rename: "secondary" etc
     actionCall: "Secure your own template for success",
-    secondaryAcionCall: [
-      "👀 Take advantage of the the current price, it will never be this cheap again.",
-    ],
+    secondaryAcionCall: ["Completely free and open-source."],
     pricingProductNames: {
-      primary: "Advanced Template",
-      seconary: "Basic Template",
+      primary: "Get Free Access",
+      primarySubtext: "Completely free and open-source",
     },
     pricingLineItems: [
-      "Easily customisable component",
-      "Complete stripe integration incl. webhooks",
+      "Easily customisable with DaisyUI",
+      "Complete stripe integration",
       "Database set-up using MongodB ",
-      "Protected Routes + Middleware",
       "Default 'User' and 'Lead' schema",
       "User Authentication (Next-Auth + Prisma)",
-      "Search Engine Optimization",
       "User tracking and analytics",
       "Full Responsiveness",
-      "Plently of customisable components",
       "Mailing integration (Mailgun)",
       "Affiliate program (coming soon)",
       "Privacy Policy template",
-      "Terms and Conditions template",
+      "Terms of Service template",
     ],
     // The following 2 are for the features available (see pricingLineItems above) in each of your products/services
-    primaryPricingItems: [
-      true,
-      true,
-      true,
+    primaryFeaturesInclude: [
       true,
       true,
       true,
@@ -172,26 +159,11 @@ export const config = {
       true,
       true,
     ],
-    secondaryPricingItems: [
-      true,
-      true,
-      true,
-      true,
-      true,
-      true,
-      true,
-      true,
-      true,
-      true,
-      false,
-      false,
-      false,
-      false,
-    ],
+    secondaryFeaturesInclude: [],
     primaryPricingDealText: "",
     secondaryPricingDealText: "",
-    primaryPricingCTA: "Get LaunchKit (pre-order)",
-    secondaryPricingCTA: "Get LaunchKit (pre-order)",
+    primaryPricingCTA: "View repository",
+    secondaryPricingCTA: "",
   },
   faqPage: {
     subHeader: "Still got questions? Feel free to DM me",

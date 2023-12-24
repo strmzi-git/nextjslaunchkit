@@ -2,7 +2,7 @@
 
 import { config } from "@/config";
 import SingleTestimonial from "./SingleTestimonial";
-import MainSubHeader from "../MainSubHeader";
+import MainSubHeader from "../reusables/MainSubHeader";
 import { useEffect, useState } from "react";
 import ShowAllTestimonials from "./ShowAllTestimonials";
 

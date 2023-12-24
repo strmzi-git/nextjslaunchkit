@@ -9,7 +9,7 @@ interface ShowAllTestimonialsProps {
 import { config } from "@/config";
 import { RiFullscreenExitLine } from "react-icons/ri";
 import SingleTestimonial from "./SingleTestimonial";
-import MainSubHeader from "../MainSubHeader";
+import MainSubHeader from "../reusables/MainSubHeader";
 
 const ShowAllTestimonials = function ({ setSizeUp }: ShowAllTestimonialsProps) {
   return (

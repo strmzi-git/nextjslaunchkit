@@ -1,5 +1,5 @@
 import { config } from "@/config";
-import MainSubHeader from "../MainSubHeader";
+import MainSubHeader from "../reusables/MainSubHeader";
 import Component from "./Component";
 
 const HowItWorks = function () {

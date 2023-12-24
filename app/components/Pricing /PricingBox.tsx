@@ -3,125 +3,86 @@
 // If main is passed in as true, will take the primary product offer (the one you recommend your leads to purchase)
 "use client";
 
-import { config } from "@/config";
 import PricingLineItem from "./PricingLineItem";
 import { BsRocketTakeoff } from "react-icons/bs";
-import ButtonPrimary from "../ButtonPrimary";
-import { useMediaQuery } from "react-responsive";
-import prisma from "@/app/libs/prismadb";
-import { loadStripe } from "@stripe/stripe-js";
-import axios from "axios";
-import { useSession } from "next-auth/react";
-import toast from "react-hot-toast";
+import { IconType } from "react-icons";
+import PrimaryButton from "../reusables/PrimaryButton";
 
 interface PricingBoxProps {
+  lineItems: string[];
+  includedFeatures: boolean[];
+  title: string;
+  buttonCTA: string;
+  price?: string;
+  subtext?: string;
+  discountPrice?: string;
+  free?: boolean;
+  functionality?: () => void;
+  iconCTA?: IconType;
   main?: boolean;
 }
 
-const PricingBox = function ({ main }: PricingBoxProps) {
-  const isMobile = useMediaQuery({ query: "(max-width: 430px)" });
-  const { data } = useSession();
-
-  const handleCheckout = async function (main: boolean) {
-    if (!data?.user?.email) {
-      toast.error("Please log in first");
-      return;
-    }
-    // Don't forgot to fill iin your price_id for stripe in the environment variable. (DO NOT PUT INTO config.ts FILE instead)
-    const priceId = main
-      ? process.env.NEXT_PUBLIC_STRIPE_ADVANCED_PRICE_ID
-      : process.env.NEXT_PUBLIC_STRIPE_BASIC_PRICE_ID;
-
-    if (!priceId || !process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY) return;
-
-    const stripe = (await loadStripe(
-      process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
-    )) as any;
-
-    try {
-      // Creates a checkout session. See /api/create-checkout-session for more information.
-      const response = await axios.post("/api/create-checkout-session", {
-        priceId,
-        currentUserEmail: data?.user?.email,
-      });
-      // Redirects the user to the checkout page
-      await stripe.redirectToCheckout({
-        sessionId: response.data.id,
-      });
-    } catch (err: any) {
-      console.log("Oh no, an error: ", err.message);
-    }
-  };
-
+const PricingBox = function ({
+  lineItems,
+  title,
+  includedFeatures,
+  buttonCTA,
+  price,
+  discountPrice,
+  subtext,
+  free,
+  functionality,
+  iconCTA,
+  main,
+}: PricingBoxProps) {
   return (
     <div
-      className={`relative max-w-[95vw] bg-white px-1 sm:px-3 py-8 border-accentDark border-[3px] rounded-2xl 
-      ${main && isMobile && "w-[365px]"}
-      ${main && !isMobile && "w-[450px]"}
-      ${!main && isMobile && "w-[365px]"}
-      ${!main && !isMobile && "w-[425px]"}
-      ${
-        main
-          ? " shadow-pricingShadowPrimary border-opacity-80"
-          : "  shadow-pricingShadowSecondary border-opacity-10"
-      }`}
+      className={`relative max-w-[95vw] overflow-hidden bg-white  border p-1 rounded-md w-[365px] md:w-[400px]
+     `}
     >
       {main && (
-        <div className="bg-accentDark text-primary px-2 py-1 absolute right-[10%] top-[-15px] rounded-full uppercaase">
+        <div className="bg-accentDark text-primary text-sm px-4 py-2 absolute right-[10%] top-[-15px] rounded-full uppercase">
           Recommended
         </div>
       )}
+      <div className="h-[125px] flex flex-col gap-1 items-center justify-center w-[100%] bg-accent ">
+        <h3
+          className={`text-center font-semibold text-xl sm:text-2xl text-primary `}
+        >
+          {title}
+        </h3>
+        <p className="text-sm opacity-80 text-primary">{subtext}</p>
+      </div>
+      <div className="px-1 sm:px-3 py-1 ">
+        <ul className="list-none my-2 ">
+          {lineItems?.map((item, idx) => {
+            return (
+              <PricingLineItem
+                include={includedFeatures[idx]}
+                main
+                content={item}
+                key={idx}
+                index={idx}
+              />
+            );
+          })}
+        </ul>
+        <p className="text-greyDark my-4 font-semibold text-xl sm:text-2xl text-center">
+          {!free && (
+            <>
+              <span className="mr-2 line-through text-sm opacity-60">
+                {price}
+              </span>
+              {discountPrice}
+            </>
+          )}
+        </p>
 
-      <h3
-        className={`text-center font-bold   ${
-          main ? " text-2xl sm:text-3xl" : " text-xl sm:text-2xl"
-        } text-greyDark mb-4`}
-      >
-        {main
-          ? config.pricingPage.pricingProductNames.primary
-          : config.pricingPage.pricingProductNames.seconary}
-      </h3>
-      <ul className="list-none my-2 px-2 ">
-        {main
-          ? config.pricingPage.primaryPricingItems.map((item, idx) => {
-              return (
-                <PricingLineItem main content={item} key={idx} index={idx} />
-              );
-            })
-          : config.pricingPage.secondaryPricingItems.map((item, idx) => {
-              return <PricingLineItem content={item} key={idx} index={idx} />;
-            })}
-      </ul>
-
-      <p className="text-greyDark my-4 font-semibold text-xl sm:text-2xl text-center">
-        <span className=" mr-2 line-through text-sm opacity-60">
-          {main
-            ? config.pricingPage.primaryProduct.originalPrice
-            : config.pricingPage.seconaryProduct.originalPrice}
-          $
-        </span>
-        {main
-          ? config.pricingPage.primaryProduct.discountedPrice
-          : config.pricingPage.seconaryProduct.discountedPrice}
-        $
-      </p>
-
-      <div className="w-[90%] mx-auto">
-        <ButtonPrimary
-          showLogo
-          functionality={() => {
-            handleCheckout(main || false);
-          }}
-          content={
-            main
-              ? config.pricingPage.secondaryPricingCTA
-              : config.pricingPage.primaryPricingCTA
-          }
-          props={`
-          hover:bg-accentDark text-sm sm:text-base hover:text-primary hover:border-white
-          rounded-lg py-2 px-4 w-[100%] hover:border-greyDark duration-300 transition mx-auto ${
-            !main && "opacity-90"
-          }`}
+        <PrimaryButton
+          functionality={() => {}}
+          text={buttonCTA}
+          extraProps="mx-auto w-full"
+          daisyUiStyles=""
           icon={BsRocketTakeoff}
         />
       </div>

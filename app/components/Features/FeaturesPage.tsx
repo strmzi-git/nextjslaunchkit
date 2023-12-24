@@ -1,6 +1,6 @@
 import { config } from "@/config";
 import Container from "../Container";
-import MainSubHeader from "../MainSubHeader";
+import MainSubHeader from "../reusables/MainSubHeader";
 import FeaturesContainer from "./FeaturesContainer";
 
 const FeaturesPage = function (): JSX.Element {

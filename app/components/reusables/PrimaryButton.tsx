@@ -2,6 +2,7 @@ import { IconType } from "react-icons";
 
 interface PrimaryButtonProps {
   daisyUiStyles?: string;
+  extraProps?: string;
   functionality: () => void;
   iconRight?: boolean;
   text: string;
@@ -11,6 +12,7 @@ interface PrimaryButtonProps {
 
 const PrimaryButton = function ({
   functionality,
+  extraProps,
   daisyUiStyles,
   iconRight,
   text,
@@ -20,7 +22,9 @@ const PrimaryButton = function ({
   return (
     <button
       className={`flex items-center gap-1 
-     ${daisyUiStyles || "btn btn-accent text-white"}
+      ${extraProps && extraProps} 
+      btn
+     ${daisyUiStyles || "btn-accent text-white"}
   `}
       onClick={functionality}
     >

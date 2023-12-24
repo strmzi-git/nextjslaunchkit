@@ -1,10 +1,9 @@
-
-
 import { config } from "@/config";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 
 interface PricingLineItemProps {
-  content: boolean;
+  content: string;
+  include: boolean;
   main?: boolean;
   index: number;
 }
@@ -12,12 +11,13 @@ interface PricingLineItemProps {
 const PricingLineItem = function ({
   content,
   index,
+  include,
   main,
 }: PricingLineItemProps) {
   return (
     <li
       className={`w-full flex items-center text-greyDark ${
-        !content && "opacity-30"
+        !include && "opacity-30"
       } gap-[10px] ${
         main ? " text-sm sm:text-base mb-2 " : "text-xs sm:text-sm mb-2"
       }  

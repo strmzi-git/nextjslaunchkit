@@ -1,6 +1,6 @@
 import { config } from "@/config";
 import Link from "next/link";
-import MainSubHeader from "../MainSubHeader";
+import MainSubHeader from "../reusables/MainSubHeader";
 import Svg from "../Svg";
 
 const FAQHeader = function () {
