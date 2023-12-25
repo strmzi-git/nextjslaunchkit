@@ -13,6 +13,7 @@ const RoadmapPage = function () {
         {config.timelinePage.timelineItems.map((item, index) => {
           return (
             <Step
+              key={index}
               completedArray={config.timelinePage.timelineComplete}
               index={index}
               complete={config.timelinePage.timelineComplete[index]}

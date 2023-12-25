@@ -15,6 +15,23 @@ const Navbar = function () {
     const section = document.getElementById(sectionid);
     if (section) section.scrollIntoView({ behavior: "smooth" });
   };
+
+  const handleToggleMobileNavbar = function () {
+    if (fullScreenNavbar) {
+      setShowMobileNavbarItems(false);
+      setFullScreenNavbar(false);
+    } else {
+      setFullScreenNavbar(!fullScreenNavbar);
+      setTimeout(() => {
+        setShowMobileNavbarItems(!showMobileNavbarItems);
+      }, 500);
+    }
+    if (!fullScreenNavbar) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "scroll";
+    }
+  };
   return (
     <div className="z-[100]  overflow-visible ">
       <Container
@@ -22,7 +39,6 @@ const Navbar = function () {
         props={"flex items-center gap-8   justify-between relative z-50"}
       >
         <div className=" w-[300px]  absolute top-[45vh] right-[50vw] translate-x-[50%] translate-y-[-50%] z-[200] flex flex-col items-center gap-4">
-          {showMobileNavbarItems && <LoginButton />}
           {showMobileNavbarItems &&
             config.heroPage.navbarItems.map((item, idx) => {
               return (
@@ -51,7 +67,7 @@ const Navbar = function () {
             imageWidth={30}
             textSize="text-base"
           />
-          <div className="desktopNavbar:flex hidden items-center gap-4">
+          <div className="lg:flex hidden items-center gap-4">
             {config.heroPage.navbarItems.map((item, index) => {
               return (
                 <PrimaryButton
@@ -66,22 +82,7 @@ const Navbar = function () {
           <LoginButton />
           <div
             className="relative desktopNavbar:hidden"
-            onClick={() => {
-              if (fullScreenNavbar) {
-                setShowMobileNavbarItems(false);
-                setFullScreenNavbar(false);
-              } else {
-                setFullScreenNavbar(!fullScreenNavbar);
-                setTimeout(() => {
-                  setShowMobileNavbarItems(!showMobileNavbarItems);
-                }, 500);
-              }
-              if (!fullScreenNavbar) {
-                document.body.style.overflow = "hidden";
-              } else {
-                document.body.style.overflow = "scroll";
-              }
-            }}
+            onClick={handleToggleMobileNavbar}
           >
             <div
               className={`rounded-full absolute top-[50%] translate-y-[-50%] right-[50%] translate-x-[50%] bg-primary border z-[100] flex items-center justify-center h-[50px] w-[50px] ${

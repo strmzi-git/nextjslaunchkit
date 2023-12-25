@@ -16,7 +16,6 @@ const Step = function ({
   complete,
   completedArray,
 }: StepProps) {
-  console.log(complete);
   return (
     <li className="h-[100px]">
       {index !== 0 && (

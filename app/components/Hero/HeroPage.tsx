@@ -1,9 +1,7 @@
 "use client";
-
 export { SessionProvider } from "next-auth/react";
 import Container from "../Container";
 import HeaderText from "./HeaderText";
-import { useMediaQuery } from "react-responsive";
 import SecondaryHeaderText from "./secondaryHeaderText";
 import { config } from "@/config";
 import Navbar from "./Navbar";
@@ -12,6 +10,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import PrimaryButton from "../reusables/PrimaryButton";
 import CarouselParent from "../Carousel/CarouselParent";
+import HeaderImage from "./HeaderImage";
 
 const HeroPage = function () {
   const searchParams = useSearchParams();
@@ -47,23 +46,14 @@ const HeroPage = function () {
   return (
     <div className="min-h-screen relative max-w-screen overflow-hidden z-50 px-6 w-[90vw] md:w-[85vw] lg:w-[85vw] mx-auto ">
       <Navbar />
-      {/* <Navbar /> */}
-      <Container props="flex mt-14">
-        <Container props=" w-[50%] flex flex-col">
-          {/* <SecondaryHeaderCTA isTablet={isTablet} /> */}
+      <Container props="flex mt-6 flex-col lg:flex-row">
+        <Container props=" w-[100%] lg:w-[50%] flex flex-col  justify-center">
           <HeaderText />
           <SecondaryHeaderText content={config.heroPage.subheader} />
           <div className="mt-8 relative flex z-20  items-center gap-4">
-            {/* <ArrowSvg top="top-[5px]" left="left-[-45px]" /> */}
-            {/* <ActionButton
-            functionality={() => scrollIntoView("Pricing")}
-            content={config.heroPage.headerButtonCTA.primaryCTA}
-          /> */}
             <PrimaryButton
-              // iconRight
               functionality={() => scrollIntoView("Pricing")}
               text={"Free Access"}
-              // icon={FaLongArrowAltRight}
             />
             <PrimaryButton
               text="Learn more"
@@ -72,8 +62,11 @@ const HeroPage = function () {
             />
           </div>
         </Container>
-        <Container props=" flex w-[50%] items-center justify-end">
-          <div className="h-[350px] w-[90%] bg-accent rounded-lg"></div>
+        <Container
+          showOverflow
+          props=" flex w-[100%] lg:w-[50%] items-start justify-center relative"
+        >
+          <HeaderImage />
         </Container>
       </Container>
       <CarouselParent />
