@@ -1,5 +1,7 @@
 # Project: NextJsLaunchKit
 
+(Still under daily construction)
+
 The purpose of this repository is to establish a growing template for constructing feature-rich landing pages tailored towards SaaS apps. The am is to create a collaborative environment where developers can continuously contribute to an expanding library of UI components, functionalities, and versatile tech stack integrations. This project serves as a living framework, designed to simplify and expedite the development process. It offers a customizable foundation equipped with a suite of essential features like Stripe integration, email system setup, database schemas, authentication processes, affiliate programs, and comprehensive tracking and analytics tools. Additionally, it provides ready-to-use templates for legal documents such as terms of service and privacy policies. As a growing platform, it's geared to not only meet current digital demands but also to adapt and incorporate new features and technologies over time, ensuring users have a cutting-edge toolset for creating high-performing, adaptable landing pages.
 
 ## Tech stack
