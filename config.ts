@@ -64,7 +64,7 @@ export const config = {
   },
   howItWorksPage: {
     header: "It's simple, really",
-    subheaderArray: [
+    subheader: [
       "❌ Stop spending weeks, only to validate a failed idea",
       "✅ Get an idea, validate your idea within 1 day, iterate until you find success.",
     ],

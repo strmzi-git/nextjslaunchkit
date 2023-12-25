@@ -4,21 +4,8 @@
 
 import { config } from "@/config";
 import EmailInput from "./EmailInput";
-import axios from "axios";
 
 const EmailListSignUp = function () {
-  const onSubmitEmail = async function (leadEmail: string) {
-    try {
-      if (!leadEmail) {
-        document.getElementById("email-signup-input")?.focus();
-        return;
-      }
-      await axios.post("/api/addLead", { leadEmail });
-    } catch (err: any) {
-      console.log("Oh no, an error:", err.message);
-    }
-  };
-
   return (
     <div
       id="email-signup"
