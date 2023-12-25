@@ -3,25 +3,20 @@ export const config = {
   logoLocation: "/images/TransparentLogo.png",
 
   heroPage: {
+    header: "Next.Js Boilerplate for Effortless Design and Development",
+    subheader:
+      "Supercharge your workflow and ship products at a much faster rate using our all-in-one boilerplate. No need to spend weeks designing and developing an app from scratch.",
     navbarItems: ["Features", "How it works", "Testimonials", "Pricing", "FAQ"],
     tertiaryCTA: "Launch your idea before anyone else.",
-    headerTexts: {
-      primary: "Next.Js Boilerplate for Effortless Design and Development",
-      secondary:
-        "Supercharge your workflow and ship products at a much faster rate using our all-in-one boilerplate. No need to spend weeks designing and developing an app from scratch.",
-    },
-    headerButtonCTA: {
-      primaryCTA: "Start Building",
-      secondaryCTA: "Learn more...",
-    },
+    buttonPrimaryCTA: "Start Building",
+    buttonSecondaryCTA: "Learn more...",
   },
   featuresPage: {
-    featuresPageHeader: {
-      primary: "What do you get?",
-      secondary: [
-        "Everything you need to validate any ideas you have within minutes.",
-      ],
-    },
+    header: "What do you get?",
+    subheader: [
+      "Everything you need to validate any ideas you have within minutes.",
+    ],
+
     featureTitles: [
       "Search Engine Optimization",
       "Database integration",
@@ -68,6 +63,11 @@ export const config = {
     ],
   },
   howItWorksPage: {
+    header: "It's simple, really",
+    subheaderArray: [
+      "❌ Stop spending weeks, only to validate a failed idea",
+      "✅ Get an idea, validate your idea within 1 day, iterate until you find success.",
+    ],
     phaseHeaders: [
       "Initial Idea",
       "Market Research",
@@ -75,11 +75,6 @@ export const config = {
       "Launch Date",
     ],
     mainPhaseSubHeader: "Weeks worth of work, already done for you.",
-    header: "It's simple, really",
-    subheader: [
-      "❌ Stop spending weeks, only to validate a failed idea",
-      "✅ Get an idea, validate your idea within 1 day, iterate until you find success.",
-    ],
     cardContents: [
       "Easily customisable component",
       "Complete stripe integration incl. webhooks",
@@ -97,7 +92,6 @@ export const config = {
       "Terms and Conditions template",
     ],
   },
-
   testimonialsPage: {
     header: "Have a look at what users say",
     subheader: [
@@ -116,18 +110,15 @@ export const config = {
     ],
   },
 
-  quote: {
-    quoteText: "", // You can have a quote here from one of your reviewers maybe
-    quoteAuthor: "",
-  },
   pricingPage: {
+    header: "Secure your own template for success",
+    subheader: ["Completely free and open-source"],
     primaryProduct: {
       discountedPrice: "",
       originalPrice: "",
     },
     // Add products as you need, just copy paste the "primaryProduct" above and rename: "secondary" etc
-    actionCall: "Secure your own template for success",
-    secondaryAcionCall: ["Completely free and open-source."],
+
     pricingProductNames: {
       primary: "Get Free Access",
       primarySubtext: "Completely free and open-source",
@@ -164,6 +155,20 @@ export const config = {
     secondaryPricingDealText: "",
     primaryPricingCTA: "View repository",
     secondaryPricingCTA: "",
+  },
+  timelinePage: {
+    header: "Our Roadmap",
+    subheaderArray: [
+      "Need something we're not currently working on? Contribute yourself: https://github.com/strmzi-git/nextjslaunchkit",
+    ],
+    timelineItems: [
+      "Database set-up with default schema (User & Leads)",
+      "User Authentication",
+      "Stripe integrations",
+      "Mailing integrations (mailgun)",
+      "Google analytics and tracking",
+    ],
+    timelineComplete: [true, true, true, false, false],
   },
   faqPage: {
     subHeader: "Still got questions? Feel free to DM me",

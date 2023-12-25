@@ -52,9 +52,7 @@ const HeroPage = function () {
         <Container props=" w-[50%] flex flex-col">
           {/* <SecondaryHeaderCTA isTablet={isTablet} /> */}
           <HeaderText />
-          <SecondaryHeaderText
-            content={config.heroPage.headerTexts.secondary}
-          />
+          <SecondaryHeaderText content={config.heroPage.subheader} />
           <div className="mt-8 relative flex z-20  items-center gap-4">
             {/* <ArrowSvg top="top-[5px]" left="left-[-45px]" /> */}
             {/* <ActionButton

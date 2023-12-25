@@ -45,13 +45,13 @@ const PricingBox = function ({
           Recommended
         </div>
       )}
-      <div className="h-[125px] flex flex-col gap-1 items-center justify-center w-[100%] bg-accent ">
+      <div className="h-[125px] flex flex-col gap-1 items-center justify-center w-[100%] bg-gray-100 ">
         <h3
-          className={`text-center font-semibold text-xl sm:text-2xl text-primary `}
+          className={`text-center font-semibold text-xl sm:text-2xl text-secondary `}
         >
           {title}
         </h3>
-        <p className="text-sm opacity-80 text-primary">{subtext}</p>
+        <p className="text-sm opacity-80 text-secondary">{subtext}</p>
       </div>
       <div className="px-1 sm:px-3 py-1 ">
         <ul className="list-none my-2 ">

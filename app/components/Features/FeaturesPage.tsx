@@ -12,8 +12,8 @@ const FeaturesPage = function (): JSX.Element {
       <Container props="flex flex-col items-center gap-2">
         <MainSubHeader
           section="Features"
-          mainContent={config.featuresPage.featuresPageHeader.primary}
-          subArray={config.featuresPage.featuresPageHeader.secondary}
+          mainContent={config.featuresPage.header}
+          subArray={config.featuresPage.subheader}
         />
         <FeaturesContainer />
       </Container>

@@ -22,9 +22,9 @@ const EmailListSignUp = function () {
   return (
     <div
       id="email-signup"
-      className="w-[100%] relative py-16 flex flex-col items-center justify-center"
+      className="w-[100%] relative py-16 flex items-center justify-center"
     >
-      <div className="rounded-lg border overflow-hidden relative z-50 md:h-[300px] sm:max-h-[600px] w-[90vw] bg-primary flex flex-col items-center justify-center">
+      <div className="rounded-lg py-6 gap-2 border w-[90vw] bg-primary flex flex-col items-center justify-center">
         <h3 className="font-bold max-w-[800px] text-center min-w-[350px] md:w-auto  text-3xl sm:text-4xl mb-4">
           {config.emailSignUpForm.header}
         </h3>
@@ -34,7 +34,6 @@ const EmailListSignUp = function () {
         <div className="min-w-[275px]  sm:w-[350px] md:w-[500px] ">
           <EmailInput />
         </div>
-        {/* Patterns in the top left and bottom right corner */}
       </div>
     </div>
   );

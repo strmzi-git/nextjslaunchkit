@@ -18,8 +18,8 @@ const PricingPage = async function () {
       <Container props="flex items-center flex-col">
         <MainSubHeader
           section="Pricing"
-          mainContent={config.pricingPage.actionCall}
-          subArray={config.pricingPage.secondaryAcionCall}
+          mainContent={config.pricingPage.header}
+          subArray={config.pricingPage.subheader}
         />
 
         <div className="flex items-center mb-12 gap-16 flex-col md:flex-row ">

@@ -6,6 +6,7 @@ import PricingPage from "./components/Pricing /PricingPage";
 import FAQPage from "./components/FAQ/FAQPage";
 import Footer from "./components/Footer/Footer";
 import EmailListSignUp from "./components/Leads/EmailListSignUp";
+import RoadmapPage from "./components/Roadmap/RoadmapPage";
 
 export default async function Home() {
   return (
@@ -18,6 +19,7 @@ export default async function Home() {
       <Toaster />
       <HeroPage />
       <FeaturesPage />
+      <RoadmapPage />
       <PricingPage />
       <FAQPage />
       <EmailListSignUp />
